@@ -11,7 +11,7 @@
         <li><a class="menu-btn" href="#">Kitaplar</a></li>
         <li><a class="menu-btn" href="#">İletişim</a></li>
       </ul>
-      <nuxt-link class="login-btn" to="/signup">
+      <nuxt-link class="login-btn" to="/signin">
         Giriş Yap
       </nuxt-link>
     </nav>

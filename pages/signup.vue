@@ -1,110 +1,106 @@
 <template>
-  <div class="container-fluid vh-100">
-    <div class="d-flex flex-column">
-      <div class="container-fluid flex-column mt-5 confirmPage">
-        <div class="d-flex justify-content-center mt-5 py-5">
-          <div
-            class="signUp brd-rounded d-flex flex-column justify-content-center bg-white shadow"
-          >
-            <div class="mx-auto my-auto">
-              <form @submit.prevent="register">
-                <h1>Kayıt Ol</h1>
-                <div class="d-flex flex-row">
-                  <div class="d-flex flex-column">
-                    <div class="d-flex flex-column mt-3 mr-5">
-                      <label for="bio"> Hakkımda </label>
-                      <input v-model="bio" type="text">
-                    </div>
-                    <div class="d-flex flex-column mt-3">
-                      <label for="email">Email</label>
-                      <input id="email" v-model="email" type="text">
-                    </div>
-                    <!-- <div class="d-flex flex-column mt-3">
-                      <label for="username">Kullanıcı Adı</label>
-                      <input id="username" v-model="username" type="text">
-                    </div> -->
-                    <div class="d-flex flex-column mt-3">
-                      <label for="password">Şifre</label>
-                      <input id="password1" v-model="password1" type="text">
-                      <label for="password">Şifreyi Tekrarla</label>
-                      <input id="password2" v-model="password2" type="text">
-                    </div>
-                    <button class="btn btn-primary mt-3" type="submit">
-                      Kayıt Ol
-                    </button>
-                  </div>
-
-                  <div class="d-flex flex-column mt-3">
-                    <label for="first_name">İsim</label>
-                    <input id="first_name" v-model="first_name" type="text">
-                    <label for="last_name">Soyisim</label>
-                    <input id="last_name" v-model="last_name" type="text">
-
-                    <div class="d-flex flex-column mt-3">
-                      <label for="phone">Telefon Numarası (10 haneli)</label>
-                      <input id="phone" v-model="phone" type="text">
-                      <label for="department">Bölümünüz</label>
-                      <input id="department" v-model="departmand" type="text">
-                    </div>
-                  </div>
-                  <div class="d-flex flex-column mt-3">
-                    <label for="grade">Sınıfınız</label>
-                    <!-- <input id="grade" v-model="grade" type="text"> -->
-                    <select id="grade" v-model="grade" name="grade">
-                      <option value="1">
-                        1
-                      </option>
-                      <option value="2">
-                        2
-                      </option>
-                      <option value="3">
-                        3
-                      </option>
-                      <option value="4">
-                        4
-                      </option>
-                      <option value="5">
-                        5
-                      </option>
-                      <option value="6">
-                        6
-                      </option>
-                    </select>
-                  </div>
-                  <div>
-                    <label for="school_number">Okul Numaran</label>
-                    <input
-                      id="school_number"
-                      v-model="school_number"
-                      type="text"
-                    >
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+  <div class="d-flex flex-row">
+    <div class="signup">
+      <div class="form-group">
+        <label class="form-label" for="first">What is your name?</label>
+        <input @click="denemefunc" id="first" class="form-input" type="text" />
       </div>
+    </div>
+
+    <div class="picture">
+
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SignUp'
+  name: 'SignUp',
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+    denemefunc() {
+      document.querySelector('input').focus(function () {
+        document.querySelector(this).parents('.form-group').classList.add('focused');
+      });
+
+      document.querySelector('input').blur(function () {
+        var inputValue = document.querySelector(this).value;
+        if (inputValue == "") {
+          document.querySelector(this).classList.remove('filled');
+          document.querySelector(this).parents('.form-group').classList.remove('focused');
+        } else {
+          document.querySelector(this).classList.add('filled');
+        }
+      })
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.container-fluid {
-  background-color: #1a202c;
-}
-.signUp {
-  padding: 5%;
-  border-radius: 15px;
+@import 'assets/scss/colors.scss';
+
+.form-group {
+  position: relative;
+
+  &+.form-group {
+    margin-top: 30px;
+  }
 }
 
-input {
-  width: 200px;
+.form-label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: #999;
+  background-color: #fff;
+  z-index: 10;
+  transition: transform 150ms ease-out, font-size 150ms ease-out;
+}
+
+.focused .form-label {
+  transform: translateY(-125%);
+  font-size: .75em;
+}
+
+.form-input {
+  position: relative;
+  padding: 12px 0px 5px 0;
+  width: 100%;
+  outline: 0;
+  border: 0;
+  box-shadow: 0 1px 0 0 #e5e5e5;
+  transition: box-shadow 150ms ease-out;
+
+  &:focus {
+    box-shadow: 0 2px 0 0 blue;
+  }
+}
+
+.form-input.filled {
+  box-shadow: 0 2px 0 0 lightgreen;
+}
+
+
+
+
+
+.signup {
+  width: 50%;
+  background-color: red;
+  height: 100vh;
+}
+
+.picture {
+  height: 100vh;
+  width: 50%;
+  background-image: url('assets/images/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 </style>

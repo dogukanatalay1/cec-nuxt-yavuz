@@ -8,7 +8,6 @@
     <Opportunities class="opportunities" />
     <EventsEventCarousel style="z-index: 1000" />
 
-    <!--   -->
   </div>
 </template>
 
