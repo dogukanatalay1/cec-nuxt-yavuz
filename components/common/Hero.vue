@@ -33,7 +33,7 @@ export default {
 .hero {
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+  background-image: linear-gradient(rgba(0, 0, 0, 1.3), rgba(0, 0, 0, 0.2)),
     url('@/assets/images/hero1.jpg');
   background-size: cover;
   background-position: center;

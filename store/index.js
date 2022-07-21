@@ -30,13 +30,13 @@ const createStore = () => {
       }
     },
     actions: {
-      // nuxtServerInit (vuexContext, context) {
-      //   return context.app.$axios.get(process.env.BASE_URL + 'events/').then((response) => {
+      // nuxtServerInit(vuexContext, context) {
+      //   return context.app.$axios.get('https://ktucectest.herokuapp.com/api/events/').then((response) => {
       //     const data = response.data
       //     const eventArray = []
       //     for (const key in data) {
       //       // data["id"] = key
-      //       window.console.log(key)
+      //       console.log(key)
       //       eventArray.push({
       //         id: key,
       //         ...data[key]

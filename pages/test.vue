@@ -1,14 +1,14 @@
 <template>
   <div>
-    <EventCarousel />
+    <Opportunities />
   </div>
 </template>
 
 <script>
-import EventCarousel from '../components/events/EventCarousel.vue'
+import Opportunities from '../components/Opportunities.vue'
 export default {
   name: 'TestVue',
-  components: { EventCarousel }
+  components: { Opportunities }
 }
 </script>
 

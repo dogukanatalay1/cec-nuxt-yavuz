@@ -2,7 +2,7 @@
   <div class="d-flex">
     <!-- <EventsEventCard v-for="event in events" :key="event" :event="event" /> -->
     <EventsEventCard
-      v-for="event in events.slice(0, 1)"
+      v-for="event in events.slice(0, 2)"
       :key="event.id"
       :event="event"
     />

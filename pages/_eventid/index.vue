@@ -2,7 +2,7 @@
   <div>
     <EventsEventDetail v-if="singleEvent" :single-event="singleEvent" />
     <div v-else>
-      bla
+      <h1>Etkinliğin ayrıntı bilgileri bulunamadı...</h1>
     </div>
   </div>
 </template>
@@ -16,13 +16,13 @@ export default {
     }
   },
   created () {
-    // console.log(this.$route.params)
+    console.log(this.$route.params.eventid)
     this.getSingleEvent(this.$route.params.eventid)
   },
   methods: {
     getSingleEvent (eventId) {
       this.$API.events.getSingleEvent(eventId).then((response) => {
-        // console.log(response.data)
+        window.console.log(response.data)
         this.singleEvent = response.data
       })
     }

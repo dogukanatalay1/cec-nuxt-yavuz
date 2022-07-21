@@ -4,12 +4,7 @@
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
           <div class="sub_title">
-            <h2>Unlimited Possibilities</h2>
-            <p>
-              Lorem ipsum dolor sit amet mollis felis dapibus arcu donec
-              viverra. Pede phasellus eget. Etiam maecenas vel vici quis dictum
-              rutrum nec nisi et.
-            </p>
+            <h2>Kulübümüz size neler kazandırabilir?</h2>
           </div>
           <!-- ends: .section-header -->
         </div>
@@ -19,11 +14,13 @@
               <i class="flaticon-student" />
             </div>
             <div class="blog_title">
-              <h3><a href="#" title="">Next Scheduled</a></h3>
+              <h3>
+                <a class="item-title" href="#" title="">Sosyal Etkinlikler</a>
+              </h3>
               <p>
-                Lorem ipsum dolor consectetur sed do tempor incididunt ut
-                laboris ut aliquip ex commodo nt ut laboris ut aliquip ex
-                commodo conquat.
+                Birçok bölümden üye barındıran KTU CEC; sürekli olarak geziler
+                ve kahvaltılar gibi çeşitli etkinlikler düzenler ve bir çok yeni
+                insan ile keyifli zaman geçirmenizi sağlar.
               </p>
             </div>
           </div>
@@ -34,11 +31,14 @@
               <i class="flaticon-university" />
             </div>
             <div class="blog_title">
-              <h3><a href="#" title="">Online Courses</a></h3>
+              <h3>
+                <a class="item-title" href="#" title="">Sektörel Etkinlikler</a>
+              </h3>
               <p>
-                Lorem ipsum dolor consectetur sed do tempor incididunt ut
-                laboris ut aliquip ex commodo nt ut laboris ut aliquip ex
-                commodo conquat.
+                Kodla.co, Codenight ve farklı teknolojilere dair eğitim
+                programları ile yoğunlukla ilgilenen KTU CEC, mesleki anlamda
+                iyi bağlantılar edinebilmenizi ve yeni bakış açıları
+                kazanabilmenizi sağlar.
               </p>
             </div>
           </div>
@@ -49,11 +49,15 @@
               <i class="flaticon-diploma" />
             </div>
             <div class="blog_title">
-              <h3><a href="#" title="">Education Equip</a></h3>
+              <h3>
+                <a class="item-title" href="#" title="">Kulüp Odamız</a>
+              </h3>
               <p>
-                Lorem ipsum dolor consectetur sed do tempor incididunt ut
-                laboris ut aliquip ex commodo nt ut laboris ut aliquip ex
-                commodo conquat.
+                Bölüm binamızda bulunan kulüp odamızdan programlama kitapları
+                teslim alabilir, kütüphaneye nazaran daha rahat bir çalışma
+                ortamı sunan odamızda çalışabilir veya orada bulunan diğer
+                insanlar ile ister mesleki ister gündelik konularda sohbet
+                edebilirsiniz.
               </p>
             </div>
           </div>
@@ -70,4 +74,27 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '@/assets/scss/colors.scss';
+.single_item {
+  box-shadow: 5px 7px 7px 5px darkgray;
+  height: 320px;
+  transition: 0.2s;
+}
+.single_item:hover {
+  box-shadow: 5px 10px 12px 5px darkgrey;
+  transition: 0.2s;
+  transform: scale(1.01);
+}
+
+.item-title:hover {
+  color: $red !important;
+}
+
+.unlimited_possibilities {
+  background-image: url('@/assets/images/bg2.png');
+
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+}
+</style>
