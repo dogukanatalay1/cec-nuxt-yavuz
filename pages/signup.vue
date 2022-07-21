@@ -3,41 +3,21 @@
     <div class="signup">
       <div class="form-group">
         <label class="form-label" for="first">What is your name?</label>
-        <input @click="denemefunc" id="first" class="form-input" type="text" />
+        <input id="first" class="form-input" type="text" @click="denemefunc">
       </div>
     </div>
 
-    <div class="picture">
-
-    </div>
+    <div class="picture" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'SignUp',
-  data() {
-    return {
-
-    }
+  data () {
+    return {}
   },
-  methods: {
-    denemefunc() {
-      document.querySelector('input').focus(function () {
-        document.querySelector(this).parents('.form-group').classList.add('focused');
-      });
-
-      document.querySelector('input').blur(function () {
-        var inputValue = document.querySelector(this).value;
-        if (inputValue == "") {
-          document.querySelector(this).classList.remove('filled');
-          document.querySelector(this).parents('.form-group').classList.remove('focused');
-        } else {
-          document.querySelector(this).classList.add('filled');
-        }
-      })
-    }
-  }
+  methods: {}
 }
 </script>
 
@@ -47,7 +27,7 @@ export default {
 .form-group {
   position: relative;
 
-  &+.form-group {
+  & + .form-group {
     margin-top: 30px;
   }
 }
@@ -64,7 +44,7 @@ export default {
 
 .focused .form-label {
   transform: translateY(-125%);
-  font-size: .75em;
+  font-size: 0.75em;
 }
 
 .form-input {
@@ -85,10 +65,6 @@ export default {
   box-shadow: 0 2px 0 0 lightgreen;
 }
 
-
-
-
-
 .signup {
   width: 50%;
   background-color: red;
@@ -101,6 +77,5 @@ export default {
   background-image: url('assets/images/bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 </style>

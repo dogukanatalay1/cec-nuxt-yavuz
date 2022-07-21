@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Opportunities />
+    <UpcomingEvents />
   </div>
 </template>
 
 <script>
-import Opportunities from '../components/Opportunities.vue'
+import UpcomingEvents from '../components/events/UpcomingEvents.vue'
 export default {
   name: 'TestVue',
-  components: { Opportunities }
+  components: { UpcomingEvents }
 }
 </script>
 

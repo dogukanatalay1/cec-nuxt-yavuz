@@ -11,7 +11,8 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-4">
           <div class="single_item single_item_first">
             <div class="icon_wrapper">
-              <i class="flaticon-student" />
+              <!-- <i class="flaticon-student" /> -->
+              <ion-icon class="icon" name="accessibility" />
             </div>
             <div class="blog_title">
               <h3>
@@ -28,17 +29,17 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-4">
           <div class="single_item single_item_center">
             <div class="icon_wrapper">
-              <i class="flaticon-university" />
+              <!-- <i class="flaticon-university" /> -->
+              <ion-icon class="icon" name="git-branch" />
             </div>
             <div class="blog_title">
               <h3>
                 <a class="item-title" href="#" title="">Sektörel Etkinlikler</a>
               </h3>
               <p>
-                Kodla.co, Codenight ve farklı teknolojilere dair eğitim
-                programları ile yoğunlukla ilgilenen KTU CEC, mesleki anlamda
-                iyi bağlantılar edinebilmenizi ve yeni bakış açıları
-                kazanabilmenizi sağlar.
+                Codenight ve farklı teknolojilere dair eğitim programları ile
+                yoğunlukla ilgilenen KTU CEC, mesleki anlamda iyi bağlantılar
+                edinebilmenizi ve yeni bakış açıları kazanabilmenizi sağlar.
               </p>
             </div>
           </div>
@@ -46,18 +47,18 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-4">
           <div class="single_item single_item_last">
             <div class="icon_wrapper">
-              <i class="flaticon-diploma" />
+              <!-- <i class="flaticon-diploma" /> -->
+              <ion-icon class="icon" name="business" />
             </div>
             <div class="blog_title">
               <h3>
                 <a class="item-title" href="#" title="">Kulüp Odamız</a>
               </h3>
               <p>
-                Bölüm binamızda bulunan kulüp odamızdan programlama kitapları
-                teslim alabilir, kütüphaneye nazaran daha rahat bir çalışma
-                ortamı sunan odamızda çalışabilir veya orada bulunan diğer
-                insanlar ile ister mesleki ister gündelik konularda sohbet
-                edebilirsiniz.
+                Kulüp odamızdan programlama kitapları teslim alabilir,
+                kütüphaneye nazaran daha rahat bir çalışma ortamı sunan odamızda
+                çalışabilir veya orada bulunan diğer insanlar ile farklı
+                konularda sohbet edebilirsiniz.
               </p>
             </div>
           </div>
@@ -96,5 +97,14 @@ export default {
 
   background-repeat: no-repeat, repeat;
   background-size: cover;
+}
+
+.icon {
+  font-size: 36px;
+
+  :hover {
+    transform: scale(1.1);
+    color: $red;
+  }
 }
 </style>

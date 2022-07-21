@@ -12,7 +12,7 @@
         <li><a class="menu-btn" href="#">İletişim</a></li>
       </ul>
       <nuxt-link class="login-btn" to="/signin">
-        Giriş Yap
+        Kayıt Ol
       </nuxt-link>
     </nav>
   </div>

@@ -34,7 +34,7 @@ export default {
   css: [
     '@/assets/scss/colors.scss',
     '@/assets/css/bootstrap.min.css',
-    '@/assets/scss/components/EventCard.scss',
+    // '@/assets/scss/components/EventCard.scss',
     '@/assets/scss/main.scss'
   ],
 
