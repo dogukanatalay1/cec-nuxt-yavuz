@@ -7,7 +7,6 @@
     <CommonHero class="hero" />
     <Opportunities class="opportunities" />
     <EventsEventCarousel style="z-index: 1000" />
-
   </div>
 </template>
 

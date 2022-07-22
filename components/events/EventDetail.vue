@@ -1,9 +1,6 @@
 <template>
   <div
     class="d-flex flex-column justify-content-center align-items-center m-auto"
-    :style="{
-      backgroundImage: `${singleEvent.album[0].images[0].image}`
-    }"
   >
     <div class="btn-container">
       <nuxt-link to="/" class="btn btn-danger back-btn">
