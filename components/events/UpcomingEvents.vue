@@ -14,7 +14,7 @@
             </div>
             <!-- ends: .section-header -->
             <div class="envent_all_view">
-              <a href="#" title="">Tümünü Gör</a>
+              <a class="see-all-btn" href="#" title="">Tümünü Gör</a>
             </div>
           </div>
         </div>
@@ -27,11 +27,7 @@
         <div class="col-sm-12 events_full_box">
           <div class="events_single">
             <div class="event_banner">
-              <a href="#"><img
-                src="@/assets/images/event.jpeg"
-                alt=""
-                class="img-fluid"
-              ></a>
+              <img src="@/assets/images/event.jpeg" alt="" class="img-fluid">
             </div>
             <div class="event_info">
               <h3>
@@ -92,16 +88,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/colors.scss';
 .upcoming-event {
-  box-shadow: 4px 3px 6px grey;
+  box-shadow: 6px 7px 6px grey;
   transition: 0.2s;
 
   &:hover {
-    box-shadow: 7px 6px 7px grey;
+    box-shadow: 8px 10px 8px grey;
     transition: 0.2s;
   }
 }
 .event_dete {
   height: 70px !important;
+  background-color: $red !important;
+}
+
+.see-all-btn {
+  background-color: $about-black !important;
+  &:hover {
+    background-color: $red !important;
+  }
 }
 </style>
