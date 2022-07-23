@@ -35,9 +35,7 @@
 
           <div class="user-box">
             <input type="number" name="" required="">
-            <label>
-              <ion-icon name="call-outline" />Telefon Numarası
-            </label>
+            <label> <ion-icon name="call-outline" />Telefon Numarası </label>
           </div>
         </div>
 
@@ -49,18 +47,14 @@
 
           <div class="user-box">
             <input type="number" name="" required="">
-            <label>
-              <ion-icon name="school-outline" />Okul Numarası
-            </label>
+            <label> <ion-icon name="school-outline" />Okul Numarası </label>
           </div>
         </div>
 
         <div class="row d-flex justify-content-between">
           <div class="user-box">
             <input type="password" name="" required="">
-            <label>
-              <ion-icon name="lock-closed-outline" />Şifre
-            </label>
+            <label> <ion-icon name="lock-closed-outline" />Şifre </label>
           </div>
 
           <div class="user-box">
@@ -188,7 +182,7 @@ ion-icon {
 .picture {
   height: 100vh;
   width: 50%;
-  background-image: url('assets/images/bg.jpg');
+  background-image: url('assets/images/hero1.JPG');
   background-repeat: no-repeat;
   background-size: cover;
 }

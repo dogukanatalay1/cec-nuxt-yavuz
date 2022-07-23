@@ -147,7 +147,7 @@ ion-icon {
 .picture {
   height: 100vh;
   width: 50%;
-  background-image: url('assets/images/bg.jpg');
+  background-image: url('assets/images/hero1.JPG');
   background-repeat: no-repeat;
   background-size: cover;
 }
