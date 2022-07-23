@@ -12,12 +12,14 @@
 
         <div class="login-form-group my-3">
           <ion-icon name="person-circle-outline"></ion-icon>
-          <input id="email" type="email" placeholder="E-mail">
+          <input id="email" type="email" required>
+          <label>E-mail</label>
         </div>
 
         <div class="login-form-group my-3">
           <ion-icon name="lock-closed-outline"></ion-icon>
-          <input id="password" type="password" placeholder="Password">
+          <input id="password" type="password" required>
+          <label>Password</label>
         </div>
 
         <div class="flex-item justify-content-between buttons my-3">
@@ -59,10 +61,18 @@ input {
   padding-left: 10px;
   transition: .4s ease all;
 
-  &:focus {
+  &:focus,&:valid {
     outline: none;
     border: 1.6px solid $red;
     border-left: none;
+  }
+
+  &:focus~label,
+  &:valid~label {
+    top: -26px;
+    color: red;
+    background-color: white;
+    font-size: 12px;
   }
 
   //removing background color in autofill
@@ -72,6 +82,18 @@ input {
   &:-webkit-autofill:active {
     box-shadow: 0 0 0 30px white inset !important;
   }
+}
+
+label {
+  position: absolute;
+  top: 0;
+  margin-top: 12px;
+  margin-left: 50px;
+  font-size: 16px;
+  color: red;
+  pointer-events: none;
+  transition: .5s ease all;
+  padding: 0 4px;
 }
 
 
@@ -102,6 +124,7 @@ a {
     &-group {
       width: 80%;
       display: flex;
+      position: relative;
     }
 
     .buttons {

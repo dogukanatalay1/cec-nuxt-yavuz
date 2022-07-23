@@ -1,5 +1,6 @@
 <template>
-  <div class="d-flex flex-row">
+  <div class="d-flex flex-row ">
+    <img class="login-logo" src="~/assets/images/cec-icon.png" alt="" />
     <div class="signup d-flex flex-column justify-content-center align-items-center">
 
       <div class="mb-5 text-center">
@@ -13,12 +14,16 @@
 
           <div class="user-box">
             <input type="text" name="" required="">
-            <label>Ad</label>
+            <label>
+              <ion-icon name="person-outline"></ion-icon>Ad
+            </label>
           </div>
 
           <div class="user-box">
             <input type="text" name="" required="">
-            <label>Soyad</label>
+            <label>
+              <ion-icon name="person-outline"></ion-icon>Soyad
+            </label>
           </div>
 
         </div>
@@ -53,12 +58,14 @@
 
           <div class="user-box">
             <input type="number" name="" required="">
-            <label>Okul Numarası</label>
+            <label>
+              <ion-icon name="school-outline"></ion-icon>Okul Numarası
+            </label>
           </div>
 
         </div>
 
-        <div class="row">
+        <div class="row d-flex justify-content-between">
 
           <div class="user-box">
             <input type="password" name="" required="">
@@ -77,17 +84,17 @@
 
         </div>
 
-        <div class="row">
+        <div class="row d-flex justify-content-between align-items-center">
+          <div class="user-box">
+            <input type="number" name="" required="">
+            <label>
+              <ion-icon name="school-outline"></ion-icon>Sınıf
+            </label>
+          </div>
 
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-
-          <button type="submit" class="btn btn-danger">Kayıt Ol</button>
-
+          <div class="user-box">
+            <button type="submit" class="btn btn-danger">Kayıt Ol</button>
+          </div>
         </div>
 
       </form>
@@ -111,25 +118,37 @@ export default {
 <style lang="scss" scoped>
 @import 'assets/scss/colors.scss';
 
+.login-logo {
+  width: 180px;
+  position: absolute;
+  top: 10px;
+  left: 30px;
+}
+
+button{
+  margin-bottom: 16px;
+}
+
 .user-box {
-  margin: 0 10px;
   position: relative;
+  margin: 0 8px;
 
   & input {
     width: 100%;
-    padding: 14px 0;
+    padding: 12px 0;
     font-size: 16px;
     margin-bottom: 30px;
-    border: 1.6px solid black;
+    border: none;
+    border-bottom: 1.6px solid black;
     outline: none;
     padding-left: 7px;
-    border-radius: 8px;
     transition: .4s ease all;
 
     &:focus~label,
     &:valid~label {
       top: -26px;
-      left: 2px;
+      left: 0px;
+      margin-left: 0;
       color: red;
       background-color: white;
       font-size: 12px;
@@ -137,7 +156,7 @@ export default {
 
     &:focus,
     &:valid {
-      border: 1.6px solid red;
+      border-bottom-color: red;
     }
 
     &:focus~label>ion-icon,
@@ -177,10 +196,7 @@ ion-icon {
     display: flex;
     flex-direction: column;
 
-    .row {
-      display: flex;
-      justify-content: space-between;
-    }
+    .row {}
   }
 }
 
