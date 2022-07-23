@@ -3,6 +3,7 @@
     <CommonHero class="hero" />
     <Opportunities class="opportunities" />
     <EventsUpcomingEvents />
+    <CommonTheFooter />
   </div>
 </template>
 

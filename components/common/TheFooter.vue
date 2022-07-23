@@ -40,11 +40,7 @@
 
         <div class="content-menu">
           <div class="content-menu-links d-flex">
-            <nuxt-link
-              to="signup"
-              class="login-button mb-3"
-              href=""
-            >
+            <nuxt-link to="signup" class="login-button mb-3" href="">
               Kayıt ol / Giriş Yap
             </nuxt-link>
             <a class="contact-button" href="">Bizimle İletişime Geçin</a>
@@ -77,6 +73,7 @@ footer {
     darken($red, 30%),
     darken($red, 17%)
   );
+  background-image: url('assets/images/waves.png');
   color: $about-black;
   font-weight: normal;
   font-size: 18px;

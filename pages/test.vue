@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <Event />
-  </div>
+  <div class="bg" />
 </template>
 
 <script>
-import Event from '../components/events/Event.vue'
 export default {
-  name: 'TestVue',
-  components: { Event }
+  name: 'TestVue'
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.bg {
+  background-image: url('assets/images/waves.png');
+  background-color: #000;
+}
+</style>

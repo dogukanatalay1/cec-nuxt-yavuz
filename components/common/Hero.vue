@@ -5,18 +5,13 @@
         <a class="logo-icon" href="#">KTU <span>CEC</span></a>
       </h2>
       <ul>
-        <li><a class="menu-btn" href="#">Anasayfa</a></li>
         <li>
           <nuxt-link to="/about" class="menu-btn" href="#">
             Hakkımızda
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link
-            to="/events"
-            class="menu-btn"
-            href="#"
-          >
+          <nuxt-link to="/events" class="menu-btn" href="#">
             Etkinlikler
           </nuxt-link>
         </li>
