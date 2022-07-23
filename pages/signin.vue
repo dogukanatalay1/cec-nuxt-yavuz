@@ -1,47 +1,42 @@
 <template>
   <div class="d-flex flex-row">
-
-
     <div class="login flex-item flex-column">
-
       <img class="login-logo" src="~/assets/images/cec-icon.png" alt="">
 
       <form class="login-form flex-item flex-column">
-
-        <h2 class="login-header mb-5">Giriş Yap</h2>
+        <h2 class="login-header mb-5">
+          Giriş Yap
+        </h2>
 
         <div class="login-form-group my-3">
-          <ion-icon name="person-circle-outline"></ion-icon>
+          <ion-icon name="person-circle-outline" />
           <input id="email" type="email" required>
           <label>E-mail</label>
         </div>
 
         <div class="login-form-group my-3">
-          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-icon name="lock-closed-outline" />
           <input id="password" type="password" required>
           <label>Password</label>
         </div>
 
         <div class="flex-item justify-content-between buttons my-3">
-          <button type="submit" class="btn btn-danger">Giriş Yap</button>
+          <button type="submit" class="btn btn-danger">
+            Giriş Yap
+          </button>
           <span>Hesabın Yok mu? <nuxt-link to="/signup">Kayıt Ol</nuxt-link></span>
         </div>
-
       </form>
-
     </div>
 
-
-    <div class="picture">
-
-    </div>
+    <div class="picture" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'SignIn',
-  data() {
+  data () {
     return {}
   }
 }
@@ -59,16 +54,17 @@ input {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   padding-left: 10px;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
 
-  &:focus,&:valid {
+  &:focus,
+  &:valid {
     outline: none;
     border: 1.6px solid $red;
     border-left: none;
   }
 
-  &:focus~label,
-  &:valid~label {
+  &:focus ~ label,
+  &:valid ~ label {
     top: -26px;
     color: red;
     background-color: white;
@@ -92,10 +88,9 @@ label {
   font-size: 16px;
   color: red;
   pointer-events: none;
-  transition: .5s ease all;
+  transition: 0.5s ease all;
   padding: 0 4px;
 }
-
 
 a {
   color: $red;
@@ -133,7 +128,6 @@ a {
   }
 }
 
-
 .flex-item {
   display: flex;
   justify-content: center;
@@ -156,6 +150,5 @@ ion-icon {
   background-image: url('assets/images/bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 </style>

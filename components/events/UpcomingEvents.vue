@@ -100,6 +100,7 @@ export default {
 .event_dete {
   height: 70px !important;
   background-color: $red !important;
+  width: 80px !important;
 }
 
 .see-all-btn {
