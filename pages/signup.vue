@@ -71,10 +71,14 @@
             <label> <ion-icon name="school-outline" />Sınıf </label>
           </div>
 
-          <div class="user-box">
+          <div class="user-box d-flex flex-column">
             <button type="submit" class="btn btn-danger">
               Kayıt Ol
             </button>
+            <span>Hesabın var mı?
+              <nuxt-link to="/signin" style="" class="">
+                Giriş yap!
+              </nuxt-link></span>
           </div>
         </div>
       </form>
@@ -96,6 +100,14 @@ export default {
 
 <style lang="scss" scoped>
 @import 'assets/scss/colors.scss';
+
+a {
+  color: $red;
+
+  &:hover {
+    color: darken($red, 8%);
+  }
+}
 
 .login-logo {
   width: 180px;
