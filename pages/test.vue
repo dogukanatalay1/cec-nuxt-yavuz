@@ -1,12 +1,14 @@
 <template>
   <div>
-    <EventEvent />
+    <Event />
   </div>
 </template>
 
 <script>
+import Event from '../components/events/Event.vue'
 export default {
-  name: 'TestVue'
+  name: 'TestVue',
+  components: { Event }
 }
 </script>
 

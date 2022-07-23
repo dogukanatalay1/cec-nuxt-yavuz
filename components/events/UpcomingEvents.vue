@@ -109,4 +109,8 @@ export default {
     background-color: $red !important;
   }
 }
+
+.upcoming-event {
+  width: 100%;
+}
 </style>

@@ -1,9 +1,5 @@
 <template>
   <div class="main-page">
-    <!--
-    <CommonAbout />
-     <EventsEventCarousel />
-    -->
     <CommonHero class="hero" />
     <Opportunities class="opportunities" />
     <EventsUpcomingEvents />
