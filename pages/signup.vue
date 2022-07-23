@@ -1,6 +1,8 @@
 <template>
   <div class="d-flex flex-row">
-    <img class="login-logo" src="~/assets/images/cec-icon.png" alt="">
+    <nuxt-link to="/">
+      <img class="login-logo" src="~/assets/images/cec-icon.png" alt="">
+    </nuxt-link>
     <div
       class="signup d-flex flex-column justify-content-center align-items-center"
     >
@@ -101,6 +103,18 @@ export default {
 <style lang="scss" scoped>
 @import 'assets/scss/colors.scss';
 
+@media only screen and (max-width: 500px) {
+  // phone responsive
+}
+
+.picture {
+  height: 100vh;
+  width: 50%;
+  background-image: url('assets/images/hero1.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 a {
   color: $red;
 
@@ -186,13 +200,5 @@ ion-icon {
     display: flex;
     flex-direction: column;
   }
-}
-
-.picture {
-  height: 100vh;
-  width: 50%;
-  background-image: url('assets/images/hero1.JPG');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 </style>

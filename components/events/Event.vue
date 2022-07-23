@@ -50,7 +50,13 @@
                     }}
                   </li>
                 </ul>
-                <a href="#" class="cart_btn">Add to Cart</a>
+                <nuxt-link
+                  :to="`${event.id}`"
+                  href="#"
+                  class="cart_btn"
+                >
+                  Ayrıntıları Gör
+                </nuxt-link>
               </div>
             </div>
           </div>

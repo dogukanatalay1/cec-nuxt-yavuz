@@ -1,7 +1,13 @@
 <template>
   <div class="d-flex flex-row">
     <div class="login flex-item flex-column">
-      <img class="login-logo" src="~/assets/images/cec-icon.png" alt="">
+      <nuxt-link to="/">
+        <img
+          class="login-logo"
+          src="~/assets/images/cec-icon.png"
+          alt=""
+        >
+      </nuxt-link>
 
       <form class="login-form flex-item flex-column">
         <h2 class="login-header mb-5">

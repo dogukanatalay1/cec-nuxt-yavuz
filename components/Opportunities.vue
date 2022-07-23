@@ -93,7 +93,7 @@ export default {
 }
 
 .unlimited_possibilities {
-  background-image: url('@/assets/images/bg2.png');
+  background-image: url('assets/images/bg2.png');
 
   background-repeat: no-repeat, repeat;
   background-size: cover;
