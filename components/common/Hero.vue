@@ -6,9 +6,25 @@
       </h2>
       <ul>
         <li><a class="menu-btn" href="#">Anasayfa</a></li>
-        <li><a class="menu-btn" href="#">Hakkımızda</a></li>
-        <li><a class="menu-btn" href="#">Etkinlikler</a></li>
-        <li><a class="menu-btn" href="#">Kitaplar</a></li>
+        <li>
+          <nuxt-link to="/about" class="menu-btn" href="#">
+            Hakkımızda
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link
+            to="/events"
+            class="menu-btn"
+            href="#"
+          >
+            Etkinlikler
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/books" class="menu-btn" href="#">
+            Kitaplar
+          </nuxt-link>
+        </li>
         <li><a class="menu-btn" href="#">İletişim</a></li>
       </ul>
       <nuxt-link class="login-btn" to="/signin">

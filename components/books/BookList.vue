@@ -3,18 +3,31 @@
     <h3 class="books-header mb-5 mt-2">
       Kulübümüzde Bulunan Kitaplar
     </h3>
+    <input id="" v-model="bookName" name="bookName" type="text">
     <BooksBook v-for="book in books" :key="book.id" :book="book" />
   </div>
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 
 export default {
   name: 'BookList',
   data () {
     return {
-      books: []
+      books: [],
+      bookName: ''
+    }
+  },
+  watch: {
+    bookName () {
+      axios
+        .get(
+          `https://ktucectest.herokuapp.com/api/books/?search=${this.bookName}`
+        )
+        .then((response) => {
+          this.books = response.data
+        })
     }
   },
   created () {

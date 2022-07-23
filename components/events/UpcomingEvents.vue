@@ -67,7 +67,6 @@
                       )
                     }}</span>
                 </div>
-
                 <nuxt-link class="btn btn-danger" :to="`${upcomingEvent.id}`">
                   Aytıntıları Gör
                 </nuxt-link>
@@ -147,7 +146,7 @@ export default {
   methods: {
     getUpcomingEvents () {
       this.$API.events.getUpcomingEvents().then((response) => {
-        // console.log(response.data)
+        window.console.log(response.data)
         this.upcomingEvents = response.data
       })
     }

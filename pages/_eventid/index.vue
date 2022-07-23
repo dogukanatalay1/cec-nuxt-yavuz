@@ -16,7 +16,7 @@ export default {
     }
   },
   created () {
-    console.log(this.$route.params.eventid)
+    // console.log(this.$route.params.eventid)
     this.getSingleEvent(this.$route.params.eventid)
   },
   methods: {
