@@ -185,9 +185,6 @@ ion-icon {
   &-form {
     display: flex;
     flex-direction: column;
-
-    .row {
-    }
   }
 }
 

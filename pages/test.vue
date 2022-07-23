@@ -1,14 +1,12 @@
 <template>
   <div>
-    <UpcomingEvents />
+    <EventEvent />
   </div>
 </template>
 
 <script>
-import UpcomingEvents from '../components/events/UpcomingEvents.vue'
 export default {
-  name: 'TestVue',
-  components: { UpcomingEvents }
+  name: 'TestVue'
 }
 </script>
 
