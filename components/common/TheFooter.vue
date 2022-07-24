@@ -1,56 +1,77 @@
 <template>
-  <footer>
+  <footer class="footer_2">
     <div class="container">
-      <div class="layer-1 d-flex my-4">
-        <div class="logo">
-          <img
-            class="logo-img mb-4"
-            src="~/assets/images/cec-icon.png"
-            alt=""
-          >
-          <p class="logo-content">
-            KTÜ Bilgisayar Mühendisliği Bölümü, Kanuni Kampüsü, 61080, Trabzon
-          </p>
-        </div>
-
-        <div class="content-menu">
-          <h5 class="content-menu-header">
-            Hakkımızda
-          </h5>
-          <hr>
-          <div class="content-menu-links d-flex">
-            <a href="">Referanslar</a>
-            <a href="">Etkinlikler</a>
-            <a href="">Projeler</a>
-            <a href="">Biz Kimiz?</a>
+      <div class="footer_top">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="footer_single_col footer_intro">
+              <img src="@/assets/images/cecicon.jpg" alt="" class="f_logo">
+              <p>
+                Ante amet vitae vulputate odio nulla vel pretium pulvinar
+                aenean. Rhoncus eget adipiscing etiam arcu. Ultricies justo
+                ipsum nec amet.
+              </p>
+            </div>
           </div>
-        </div>
-
-        <div class="content-menu">
-          <h5 class="content-menu-header">
-            İletişim
-          </h5>
-          <hr>
-          <div class="content-menu-links d-flex">
-            <span>Telefon: <a href="">0555 555 55 55</a> </span>
-            <span>E-mail: <a href="">cec@example.com</a></span>
-            <span>Çalışma Saatleri: 08:00 - 17:00</span>
+          <div class="col-12 col-md-6 col-lg-2">
+            <div class="footer_single_col">
+              <h3>Useful Links</h3>
+              <ul class="location_info quick_inf0">
+                <li><a href="#">Leadereship</a></li>
+                <li><a href="#">Company</a></li>
+                <li><a href="#">Diversity</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Press</a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-
-        <div class="content-menu">
-          <div class="content-menu-links d-flex">
-            <nuxt-link to="signup" class="login-button mb-3" href="">
-              Kayıt ol / Giriş Yap
-            </nuxt-link>
-            <a class="contact-button" href="">Bizimle İletişime Geçin</a>
+          <div class="col-12 col-md-6 col-lg-2">
+            <div class="footer_single_col information">
+              <h3>information</h3>
+              <ul class="quick_inf0">
+                <li><a href="#">Leadereship</a></li>
+                <li><a href="#">Company</a></li>
+                <li><a href="#">Diversity</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Press</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="footer_single_col contact">
+              <h3>Contact Us</h3>
+              <p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
+              <div class="contact_info">
+                <span>+000 124 325</span>
+                <span class="email">info@eduwise.com</span>
+              </div>
+              <ul class="social_items d-flex list-unstyled">
+                <li>
+                  <a href="#"><i class="fab fa-facebook-f fb-icon" /></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-twitter twitt-icon" /></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-linkedin-in link-icon" /></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-instagram ins-icon" /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-12 col-lg-12">
+            <div class="copyright">
+              <p>&copy; Copyright 2019 Eduwise Design by Ecologytheme</p>
+            </div>
           </div>
         </div>
       </div>
-      <hr>
-      <div class="layer-2">
-        sponsorlar
-      </div>
+    </div>
+    <div class="shapes_bg">
+      <img src="@/assets/images/bg2.png" alt="" class="shape_3">
+      <img src="@/assets/images/footer_2.png" alt="" class="shape_1">
     </div>
   </footer>
 </template>
@@ -62,83 +83,7 @@ export default {}
 <style lang="scss" scoped>
 @import 'assets/scss/colors.scss';
 
-hr {
-  color: $about-black;
-}
-
-footer {
-  padding: 40px 0;
-  background: linear-gradient(
-    to left bottom,
-    darken($red, 30%),
-    darken($red, 17%)
-  );
-  background-image: url('assets/images/waves.png');
-  color: $about-black;
-  font-weight: normal;
-  font-size: 18px;
-  margin-bottom: 0;
-  border-top-left-radius: 120px;
-
-  .layer-1 {
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-
-    .logo {
-      max-width: 30%;
-
-      &-img {
-        transition: 0.4s ease all;
-        filter: drop-shadow(0 0 15px darken($about-black, 50%));
-
-        &:hover {
-          transform: scale(1.05);
-        }
-      }
-
-      &-content {
-        text-align: center;
-      }
-    }
-
-    .content-menu {
-      &-header {
-        color: $white;
-      }
-
-      &-links {
-        flex-direction: column;
-
-        a {
-          transition: 0.5s ease all;
-          text-decoration: none;
-          color: $about-black;
-
-          &:hover {
-            color: darken($white, 15%);
-          }
-        }
-
-        .login-button {
-          border: 1px solid $white;
-          color: white;
-          padding: 12px 16px;
-          border-radius: 8px;
-
-          &:hover {
-            background: $white;
-            color: darken($red, 25%);
-          }
-        }
-
-        .contact-button {
-        }
-      }
-    }
-  }
-
-  .layer-2 {
-  }
+.footer_2 {
+  background-color: $about-black !important;
 }
 </style>

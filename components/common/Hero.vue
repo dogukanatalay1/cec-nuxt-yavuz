@@ -22,8 +22,9 @@
         </li>
         <li><a class="menu-btn" href="#">İletişim</a></li>
       </ul>
-      <nuxt-link class="login-btn" to="/signin">
-        Kayıt Ol
+      <nuxt-link class="login-btn d-flex justify-content-center" to="/signin">
+        <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
+        <ion-icon style="font-size: 22px" name="log-out-outline" />
       </nuxt-link>
     </nav>
   </div>

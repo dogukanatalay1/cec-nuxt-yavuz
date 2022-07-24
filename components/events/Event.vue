@@ -1,5 +1,9 @@
 <template>
   <section id="popular_courses_2" class="popular_courses">
+    <nuxt-link class="btn btn-danger" to="/">
+      <ion-icon name="caret-back-outline" />
+      Geri Dön
+    </nuxt-link>
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -50,11 +54,7 @@
                     }}
                   </li>
                 </ul>
-                <nuxt-link
-                  :to="`${event.id}`"
-                  href="#"
-                  class="cart_btn"
-                >
+                <nuxt-link :to="`${event.id}`" href="#" class="cart_btn">
                   Ayrıntıları Gör
                 </nuxt-link>
               </div>

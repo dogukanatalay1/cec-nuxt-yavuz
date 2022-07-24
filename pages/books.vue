@@ -1,5 +1,8 @@
 <template>
   <div>
+    <nuxt-link class="btn btn-danger" to="/">
+      Geri Dön
+    </nuxt-link>
     <BooksBookList />
   </div>
 </template>
