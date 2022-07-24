@@ -3,7 +3,9 @@
     <nuxt-link to="/">
       <img class="login-logo" src="~/assets/images/cec-icon.png" alt="">
     </nuxt-link>
-    <div class="signup d-flex flex-column justify-content-center align-items-center">
+    <div
+      class="signup d-flex flex-column justify-content-center align-items-center"
+    >
       <div class="mb-5 text-center">
         <h2 class="mb-2 signup-header">
           Kayıt Ol
@@ -17,16 +19,12 @@
         <div class="row">
           <div class="user-box">
             <input type="text" name="" required="">
-            <label>
-              <ion-icon name="person-outline" />Ad
-            </label>
+            <label> <ion-icon name="person-outline" />Ad </label>
           </div>
 
           <div class="user-box">
             <input type="text" name="" required="">
-            <label>
-              <ion-icon name="person-outline" />Soyad
-            </label>
+            <label> <ion-icon name="person-outline" />Soyad </label>
           </div>
         </div>
 
@@ -34,41 +32,31 @@
           <div class="user-box">
             <!--INPUT TYPE EMAİL VERİNCE VE İNPUTA EMAİL YAZMAYINCA CSS BOZULUYOR-->
             <input type="text" name="" required="">
-            <label>
-              <ion-icon name="mail-outline" />E-mail
-            </label>
+            <label> <ion-icon name="mail-outline" />E-mail </label>
           </div>
 
           <div class="user-box">
             <input type="number" name="" required="">
-            <label>
-              <ion-icon name="call-outline" />Telefon Numarası
-            </label>
+            <label> <ion-icon name="call-outline" />Telefon Numarası </label>
           </div>
         </div>
 
         <div class="row">
           <div class="user-box">
             <input type="text" name="" required="">
-            <label>
-              <ion-icon name="school-outline" />Bölüm
-            </label>
+            <label> <ion-icon name="school-outline" />Bölüm </label>
           </div>
 
           <div class="user-box">
             <input type="number" name="" required="">
-            <label>
-              <ion-icon name="school-outline" />Okul Numarası
-            </label>
+            <label> <ion-icon name="school-outline" />Okul Numarası </label>
           </div>
         </div>
 
         <div class="row d-flex justify-content-between">
           <div class="user-box">
             <input type="password" name="" required="">
-            <label>
-              <ion-icon name="lock-closed-outline" />Şifre
-            </label>
+            <label> <ion-icon name="lock-closed-outline" />Şifre </label>
           </div>
 
           <div class="user-box">
@@ -82,9 +70,7 @@
         <div class="row d-flex justify-content-between align-items-center">
           <div class="user-box">
             <input type="number" name="" required="">
-            <label>
-              <ion-icon name="school-outline" />Sınıf
-            </label>
+            <label> <ion-icon name="school-outline" />Sınıf </label>
           </div>
 
           <div class="user-box d-flex flex-column">
@@ -92,9 +78,7 @@
               Kayıt Ol
             </button>
             <span class="signup-text">Hesabın var mı?
-              <nuxt-link to="/signin" style="" class="">
-                Giriş yap!
-              </nuxt-link>
+              <nuxt-link to="/signin" style="" class=""> Giriş yap! </nuxt-link>
             </span>
           </div>
         </div>
@@ -108,7 +92,7 @@
 <script>
 export default {
   name: 'SignUp',
-  data() {
+  data () {
     return {}
   },
   methods: {}
@@ -118,10 +102,6 @@ export default {
 <style lang="scss" scoped>
 @import 'assets/scss/colors.scss';
 
-@media only screen and (max-width: 500px) {
-  // phone responsive
-}
-
 .picture {
   display: block;
   width: 50%;
@@ -130,7 +110,7 @@ export default {
   background-size: cover;
   min-height: 100vh;
 
-  @media screen and (max-width:750px) {
+  @media screen and (max-width: 750px) {
     display: none;
   }
 }
@@ -170,13 +150,13 @@ button {
     padding-left: 7px;
     transition: 0.4s ease all;
 
-    @media screen and (max-width:750px){
+    @media screen and (max-width: 750px) {
       border-color: white;
       color: white;
     }
 
-    &:focus~label,
-    &:valid~label {
+    &:focus ~ label,
+    &:valid ~ label {
       top: -26px;
       left: 0px;
       margin-left: 0;
@@ -190,8 +170,8 @@ button {
       border-bottom-color: red;
     }
 
-    &:focus~label>ion-icon,
-    &:valid~label>ion-icon {
+    &:focus ~ label > ion-icon,
+    &:valid ~ label > ion-icon {
       font-size: 0px;
     }
   }
@@ -226,24 +206,29 @@ ion-icon {
     padding-top: 100px;
   }
 
-  @media screen and (max-width:750px) {
+  @media screen and (max-width: 750px) {
     width: 100%;
-    background-image: linear-gradient(to bottom, rgba(51, 14, 11, 0.8), rgba(51, 14, 11, 0.9)), url('assets/images/hero1.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(51, 14, 11, 0.8),
+        rgba(51, 14, 11, 0.9)
+      ),
+      url('assets/images/hero1.jpg');
     background-size: cover;
   }
 
-  &-header,&-text{
-    @media screen and (max-width:750px){
+  &-header,
+  &-text {
+    @media screen and (max-width: 750px) {
       color: white;
     }
   }
 
   &-form {
-
     .row {
       flex-direction: row;
 
-      @media screen and (max-width:980px) {
+      @media screen and (max-width: 980px) {
         flex-direction: column;
       }
     }
