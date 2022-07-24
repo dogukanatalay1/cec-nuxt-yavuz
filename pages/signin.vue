@@ -2,11 +2,7 @@
   <div class="d-flex flex-row">
     <div class="login flex-item flex-column">
       <nuxt-link to="/">
-        <img
-          class="login-logo"
-          src="~/assets/images/cec-icon.png"
-          alt=""
-        >
+        <img class="login-logo" src="~/assets/images/cec-icon.png" alt="">
       </nuxt-link>
 
       <form class="login-form flex-item flex-column">
@@ -42,7 +38,7 @@
 <script>
 export default {
   name: 'SignIn',
-  data () {
+  data() {
     return {}
   }
 }
@@ -62,6 +58,10 @@ input {
   padding-left: 10px;
   transition: 0.4s ease all;
 
+  @media screen and (max-width:750px){
+    color: white;
+  }
+
   &:focus,
   &:valid {
     outline: none;
@@ -69,12 +69,19 @@ input {
     border-left: none;
   }
 
-  &:focus ~ label,
-  &:valid ~ label {
-    top: -26px;
-    color: red;
+  &:focus~label,
+  &:valid~label {
+    top: -24px;
+    color: $red;
     background-color: white;
-    font-size: 12px;
+    font-size: 14px;
+
+    @media screen and (max-width:750px) {
+      background-color: transparent;
+      color: white;
+      top: -26px;
+      border-radius: 4px;
+    }
   }
 
   //removing background color in autofill
@@ -82,7 +89,8 @@ input {
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
-    box-shadow: 0 0 0 30px white inset !important;
+    transition: background-color 10000s;
+    -webkit-text-fill-color: #fff !important;
   }
 }
 
@@ -111,6 +119,12 @@ a {
   width: 50%;
   position: relative;
 
+  @media screen and (max-width:750px) {
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(51, 14, 11, 0.8), rgba(51, 14, 11, 0.9)), url('assets/images/hero1.jpg');
+    background-size: cover;
+  }
+
   &-logo {
     width: 180px;
     position: absolute;
@@ -118,9 +132,22 @@ a {
     left: 30px;
   }
 
+  &-header {
+    @media screen and (max-width:750px) {
+      color: white;
+    }
+  }
+
   &-form {
     width: 60%;
-    background: white;
+    background-color: transparent;
+
+    @media screen and (max-width:750px) {
+      background-color: rgba(0, 0, 0, .4);
+      border-radius: 30px;
+      width: 90%;
+      padding: 50px 0;
+    }
 
     &-group {
       width: 80%;
@@ -130,6 +157,17 @@ a {
 
     .buttons {
       width: 80%;
+
+      @media screen and (max-width:373px) {
+        flex-direction: column;
+      }
+
+      & button {
+        @media screen and (max-width:373px) {
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
     }
   }
 }
@@ -151,10 +189,15 @@ ion-icon {
 }
 
 .picture {
+  display: block;
   height: 100vh;
   width: 50%;
-  background-image: url('assets/images/hero1.JPG');
+  background-image: url('assets/images/hero1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media screen and (max-width:750px) {
+    display: none;
+  }
 }
 </style>

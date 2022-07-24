@@ -3,14 +3,12 @@
     <nuxt-link to="/">
       <img class="login-logo" src="~/assets/images/cec-icon.png" alt="">
     </nuxt-link>
-    <div
-      class="signup d-flex flex-column justify-content-center align-items-center"
-    >
+    <div class="signup d-flex flex-column justify-content-center align-items-center">
       <div class="mb-5 text-center">
-        <h2 class="mb-2">
+        <h2 class="mb-2 signup-header">
           Kayıt Ol
         </h2>
-        <p>
+        <p class="signup-text">
           Aşağıdaki formu doldurarak sen de KTU CEC ailesine katılabilirsin!
         </p>
       </div>
@@ -19,12 +17,16 @@
         <div class="row">
           <div class="user-box">
             <input type="text" name="" required="">
-            <label> <ion-icon name="person-outline" />Ad </label>
+            <label>
+              <ion-icon name="person-outline" />Ad
+            </label>
           </div>
 
           <div class="user-box">
             <input type="text" name="" required="">
-            <label> <ion-icon name="person-outline" />Soyad </label>
+            <label>
+              <ion-icon name="person-outline" />Soyad
+            </label>
           </div>
         </div>
 
@@ -32,31 +34,41 @@
           <div class="user-box">
             <!--INPUT TYPE EMAİL VERİNCE VE İNPUTA EMAİL YAZMAYINCA CSS BOZULUYOR-->
             <input type="text" name="" required="">
-            <label> <ion-icon name="mail-outline" />E-mail </label>
+            <label>
+              <ion-icon name="mail-outline" />E-mail
+            </label>
           </div>
 
           <div class="user-box">
             <input type="number" name="" required="">
-            <label> <ion-icon name="call-outline" />Telefon Numarası </label>
+            <label>
+              <ion-icon name="call-outline" />Telefon Numarası
+            </label>
           </div>
         </div>
 
         <div class="row">
           <div class="user-box">
             <input type="text" name="" required="">
-            <label> <ion-icon name="school-outline" />Bölüm </label>
+            <label>
+              <ion-icon name="school-outline" />Bölüm
+            </label>
           </div>
 
           <div class="user-box">
             <input type="number" name="" required="">
-            <label> <ion-icon name="school-outline" />Okul Numarası </label>
+            <label>
+              <ion-icon name="school-outline" />Okul Numarası
+            </label>
           </div>
         </div>
 
         <div class="row d-flex justify-content-between">
           <div class="user-box">
             <input type="password" name="" required="">
-            <label> <ion-icon name="lock-closed-outline" />Şifre </label>
+            <label>
+              <ion-icon name="lock-closed-outline" />Şifre
+            </label>
           </div>
 
           <div class="user-box">
@@ -70,17 +82,20 @@
         <div class="row d-flex justify-content-between align-items-center">
           <div class="user-box">
             <input type="number" name="" required="">
-            <label> <ion-icon name="school-outline" />Sınıf </label>
+            <label>
+              <ion-icon name="school-outline" />Sınıf
+            </label>
           </div>
 
           <div class="user-box d-flex flex-column">
             <button type="submit" class="btn btn-danger">
               Kayıt Ol
             </button>
-            <span>Hesabın var mı?
+            <span class="signup-text">Hesabın var mı?
               <nuxt-link to="/signin" style="" class="">
                 Giriş yap!
-              </nuxt-link></span>
+              </nuxt-link>
+            </span>
           </div>
         </div>
       </form>
@@ -93,7 +108,7 @@
 <script>
 export default {
   name: 'SignUp',
-  data () {
+  data() {
     return {}
   },
   methods: {}
@@ -108,11 +123,16 @@ export default {
 }
 
 .picture {
-  height: 100vh;
+  display: block;
   width: 50%;
-  background-image: url('assets/images/hero1.JPG');
+  background-image: url('assets/images/hero1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
+
+  @media screen and (max-width:750px) {
+    display: none;
+  }
 }
 
 a {
@@ -139,6 +159,7 @@ button {
   margin: 0 8px;
 
   & input {
+    background-color: transparent;
     width: 100%;
     padding: 12px 0;
     font-size: 16px;
@@ -149,13 +170,18 @@ button {
     padding-left: 7px;
     transition: 0.4s ease all;
 
-    &:focus ~ label,
-    &:valid ~ label {
+    @media screen and (max-width:750px){
+      border-color: white;
+      color: white;
+    }
+
+    &:focus~label,
+    &:valid~label {
       top: -26px;
       left: 0px;
       margin-left: 0;
       color: red;
-      background-color: white;
+      background-color: transparent;
       font-size: 12px;
     }
 
@@ -164,8 +190,8 @@ button {
       border-bottom-color: red;
     }
 
-    &:focus ~ label > ion-icon,
-    &:valid ~ label > ion-icon {
+    &:focus~label>ion-icon,
+    &:valid~label>ion-icon {
       font-size: 0px;
     }
   }
@@ -194,11 +220,33 @@ ion-icon {
 
 .signup {
   width: 50%;
-  height: 100vh;
+  min-height: 100vh;
+
+  @media screen and(max-width:980px) {
+    padding-top: 100px;
+  }
+
+  @media screen and (max-width:750px) {
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(51, 14, 11, 0.8), rgba(51, 14, 11, 0.9)), url('assets/images/hero1.jpg');
+    background-size: cover;
+  }
+
+  &-header,&-text{
+    @media screen and (max-width:750px){
+      color: white;
+    }
+  }
 
   &-form {
-    display: flex;
-    flex-direction: column;
+
+    .row {
+      flex-direction: row;
+
+      @media screen and (max-width:980px) {
+        flex-direction: column;
+      }
+    }
   }
 }
 </style>
