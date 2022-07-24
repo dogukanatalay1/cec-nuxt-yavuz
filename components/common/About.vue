@@ -50,4 +50,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.about_us {
+  background-image: url('assets/images/map.png');
+}
+</style>
