@@ -5,20 +5,23 @@
         <img class="login-logo" src="~/assets/images/cec-icon.png" alt="">
       </nuxt-link>
 
-      <form class="login-form flex-item flex-column">
+      <form
+        class="login-form flex-item flex-column"
+        @submit.prevent="userLogin"
+      >
         <h2 class="login-header mb-5">
           Giriş Yap
         </h2>
 
         <div class="login-form-group my-3">
           <ion-icon name="person-circle-outline" />
-          <input id="email" type="email" required>
+          <input id="email" v-model="email" type="email" required>
           <label>E-mail</label>
         </div>
 
         <div class="login-form-group my-3">
           <ion-icon name="lock-closed-outline" />
-          <input id="password" type="password" required>
+          <input id="password" v-model="password" type="password" required>
           <label>Password</label>
         </div>
 
@@ -38,8 +41,31 @@
 <script>
 export default {
   name: 'SignIn',
-  data() {
-    return {}
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  mounted () {
+    if (this.$auth.loggedIn) {
+      this.$router.push('/')
+    }
+  },
+  methods: {
+    async userLogin () {
+      try {
+        await this.$auth
+          .loginWith('local', {
+            email: this.email,
+            password: this.password
+          })
+          .then(() => window.console.log('girdin'))
+          .then(() => this.$router.push('/'))
+      } catch (error) {
+        window.console.log(error)
+      }
+    }
   }
 }
 </script>
@@ -58,7 +84,7 @@ input {
   padding-left: 10px;
   transition: 0.4s ease all;
 
-  @media screen and (max-width:750px){
+  @media screen and (max-width: 750px) {
     color: white;
   }
 
@@ -69,14 +95,14 @@ input {
     border-left: none;
   }
 
-  &:focus~label,
-  &:valid~label {
+  &:focus ~ label,
+  &:valid ~ label {
     top: -24px;
     color: $red;
     background-color: white;
     font-size: 14px;
 
-    @media screen and (max-width:750px) {
+    @media screen and (max-width: 750px) {
       background-color: transparent;
       color: white;
       top: -26px;
@@ -119,9 +145,14 @@ a {
   width: 50%;
   position: relative;
 
-  @media screen and (max-width:750px) {
+  @media screen and (max-width: 750px) {
     width: 100%;
-    background-image: linear-gradient(to bottom, rgba(51, 14, 11, 0.8), rgba(51, 14, 11, 0.9)), url('assets/images/hero1.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(51, 14, 11, 0.8),
+        rgba(51, 14, 11, 0.9)
+      ),
+      url('assets/images/hero1.jpg');
     background-size: cover;
   }
 
@@ -133,7 +164,7 @@ a {
   }
 
   &-header {
-    @media screen and (max-width:750px) {
+    @media screen and (max-width: 750px) {
       color: white;
     }
   }
@@ -142,8 +173,8 @@ a {
     width: 60%;
     background-color: transparent;
 
-    @media screen and (max-width:750px) {
-      background-color: rgba(0, 0, 0, .4);
+    @media screen and (max-width: 750px) {
+      background-color: rgba(0, 0, 0, 0.4);
       border-radius: 30px;
       width: 90%;
       padding: 50px 0;
@@ -158,12 +189,12 @@ a {
     .buttons {
       width: 80%;
 
-      @media screen and (max-width:373px) {
+      @media screen and (max-width: 373px) {
         flex-direction: column;
       }
 
       & button {
-        @media screen and (max-width:373px) {
+        @media screen and (max-width: 373px) {
           margin-bottom: 10px;
           width: 100%;
         }
@@ -196,7 +227,7 @@ ion-icon {
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media screen and (max-width:750px) {
+  @media screen and (max-width: 750px) {
     display: none;
   }
 }

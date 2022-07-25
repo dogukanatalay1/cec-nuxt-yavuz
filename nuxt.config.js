@@ -47,12 +47,9 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/fontawesome',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next',
+    '@nuxtjs/pwa'
   ],
-
-  auth: {
-    // Options
-  },
 
   env: {
     BASE_URL: process.env.BASE_URL,
@@ -61,6 +58,53 @@ export default {
 
   compilerOptions: {
     types: ['@nuxtjs/auth-next']
+  },
+
+  // -- -- auth -- -- //
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL
+    }
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'accounts/login', method: 'post' },
+          logout: false,
+          user: {
+            url: 'accounts/profile',
+            method: 'get',
+            propertyName: false
+          }
+        },
+        tokenRequired: true
+      }
+    },
+    rewriteRedirects: false,
+    redirect: {
+      login: 'login/',
+      logout: 'login/',
+      home: '/',
+      user: 'accounts/profile/',
+      callback: '/'
+    }
+  },
+
+  // ******* //
+
+  pwa: {
+    manifest: {
+      lang: 'en'
+    }
   },
 
   fontawesome: {

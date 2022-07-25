@@ -15,52 +15,62 @@
         </p>
       </div>
 
-      <form action="" class="signup-form">
+      <form action="" class="signup-form" @submit.prevent="register">
         <div class="row">
           <div class="user-box">
-            <input type="text" name="" required="">
+            <input
+              v-model="firstName"
+              type="text"
+              name="firstName"
+              required=""
+            >
             <label> <ion-icon name="person-outline" />Ad </label>
           </div>
 
           <div class="user-box">
-            <input type="text" name="" required="">
+            <input v-model="lastName" type="text" name="" required="">
             <label> <ion-icon name="person-outline" />Soyad </label>
           </div>
         </div>
 
         <div class="row">
           <div class="user-box">
-            <!--INPUT TYPE EMAİL VERİNCE VE İNPUTA EMAİL YAZMAYINCA CSS BOZULUYOR-->
-            <input type="text" name="" required="">
+            <!--!!!! INPUT TYPE EMAİL VERİNCE VE İNPUTA EMAİL YAZMAYINCA CSS BOZULUYOR-->
+            <input v-model="email" type="text" name="" required="">
             <label> <ion-icon name="mail-outline" />E-mail </label>
           </div>
 
           <div class="user-box">
-            <input type="number" name="" required="">
+            <input v-model="phone" type="text" name="" required="">
             <label> <ion-icon name="call-outline" />Telefon Numarası </label>
           </div>
         </div>
 
         <div class="row">
           <div class="user-box">
-            <input type="text" name="" required="">
+            <input v-model="department" type="text" name="" required="">
             <label> <ion-icon name="school-outline" />Bölüm </label>
           </div>
 
           <div class="user-box">
-            <input type="number" name="" required="">
+            <input v-model="school_number" type="text" name="" required="">
             <label> <ion-icon name="school-outline" />Okul Numarası </label>
           </div>
         </div>
 
         <div class="row d-flex justify-content-between">
           <div class="user-box">
-            <input type="password" name="" required="">
+            <input v-model="password1" type="password" name="" required="">
             <label> <ion-icon name="lock-closed-outline" />Şifre </label>
           </div>
 
           <div class="user-box">
-            <input type="password" name="" required="true">
+            <input
+              v-model="password2"
+              type="password"
+              name=""
+              required="true"
+            >
             <label>
               <ion-icon name="lock-closed-outline" />Şifreyi Doğrula
             </label>
@@ -69,7 +79,7 @@
 
         <div class="row d-flex justify-content-between align-items-center">
           <div class="user-box">
-            <input type="number" name="" required="">
+            <input v-model="grade" type="text" name="" required="">
             <label> <ion-icon name="school-outline" />Sınıf </label>
           </div>
 
@@ -93,9 +103,46 @@
 export default {
   name: 'SignUp',
   data () {
-    return {}
+    return {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      department: '',
+      grade: '',
+      school_number: '',
+      password1: '',
+      password2: ''
+    }
   },
-  methods: {}
+  methods: {
+    async register () {
+      try {
+        await this.$axios.post('/accounts/create', {
+          first_name: this.firstName,
+          last_name: this.lastName,
+          email: this.email,
+          phone: this.phone,
+          department: this.department,
+          grade: this.grade,
+          school_number: this.school_number,
+          password1: this.password1,
+          password2: this.password2
+        })
+
+        await this.$auth
+          .loginWith('local', {
+            data: {
+              email: this.email,
+              password1: this.password1
+            }
+          })
+          .then(() => this.$router.push('/'))
+      } catch (error) {
+        window.console.log(error)
+      }
+    }
+  }
 }
 </script>
 
