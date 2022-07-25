@@ -33,7 +33,6 @@
         </div>
       </form>
     </div>
-
     <div class="picture" />
   </div>
 </template>
@@ -60,7 +59,6 @@ export default {
             email: this.email,
             password: this.password
           })
-          .then(() => window.console.log('girdin'))
           .then(() => this.$router.push('/'))
       } catch (error) {
         window.console.log(error)
