@@ -16,14 +16,22 @@
         </div>
         <div class="col-12 col-sm-12 col-md-5 col-lg-5 p-0">
           <div class="banner_about">
-            <img src="@/assets/images/cec(1).png" alt="" class="img-fluid">
+            <img
+              src="@/assets/images/aboutimg1.jpg"
+              alt=""
+              class="img-fluid about-img-1"
+            >
           </div>
         </div>
       </div>
       <div class="row about_content_wrapper">
         <div class="col-12 col-sm-12 col-md-5 col-lg-5 p-0">
           <div class="about_banner_down">
-            <img src="@/assets/images/cec(1).png" alt="" class="img-fluid">
+            <img
+              src="@/assets/images/aboutimg2.jpg"
+              alt=""
+              class="img-fluid about-img-2"
+            >
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-7 col-lg-7">
@@ -53,5 +61,30 @@ export default {
 <style lang="scss" scoped>
 .about_us {
   background-image: url('assets/images/map.png');
+}
+
+.img-fluid {
+  border-radius: 20px;
+}
+
+.about_content {
+  p {
+    font-size: 22px;
+  }
+}
+
+.about-img-1 {
+}
+
+.about-img-2 {
+  margin-top: 100px;
+}
+
+.btn {
+  margin-top: -100px;
+}
+
+.row {
+  margin-top: -50px;
 }
 </style>

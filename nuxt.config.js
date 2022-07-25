@@ -62,42 +62,43 @@ export default {
 
   // -- -- auth -- -- //
 
-  publicRuntimeConfig: {
-    axios: {
-      browserBaseURL: process.env.BROWSER_BASE_URL
-    }
-  },
+  // publicRuntimeConfig: {
+  //   axios: {
+  //     browserBaseURL: process.env.BROWSER_BASE_URL
+  //   }
+  // },
 
-  privateRuntimeConfig: {
-    axios: {
-      baseURL: process.env.BASE_URL
-    }
-  },
+  // privateRuntimeConfig: {
+  //   axios: {
+  //     baseURL: process.env.BASE_URL
+  //   }
+  // },
 
-  auth: {
-    strategies: {
-      local: {
-        endpoints: {
-          login: { url: 'accounts/login', method: 'post' },
-          logout: false,
-          user: {
-            url: 'accounts/profile',
-            method: 'get',
-            propertyName: false
-          }
-        },
-        tokenRequired: true
-      }
-    },
-    rewriteRedirects: false,
-    redirect: {
-      login: 'login/',
-      logout: 'login/',
-      home: '/',
-      user: 'accounts/profile/',
-      callback: '/'
-    }
-  },
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: { url: 'accounts/login', method: 'post' },
+  //         logout: false,
+  //         user: {
+  //           url: 'accounts/profile',
+  //           method: 'get',
+  //           propertyName: false
+  //         }
+  //       },
+  //       tokenRequired: true
+  //       // tokenRequired: true
+  //     }
+  //   },
+  //   rewriteRedirects: false,
+  //   redirect: {
+  //     login: 'login/',
+  //     logout: 'login/',
+  //     home: '/',
+  //     user: 'accounts/profile/',
+  //     callback: '/'
+  //   }
+  // },
 
   // ******* //
 

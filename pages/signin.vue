@@ -61,7 +61,7 @@ export default {
           })
           .then(() => this.$router.push('/'))
       } catch (error) {
-        window.console.log(error)
+        console.log(error)
       }
     }
   }

@@ -145,7 +145,7 @@ export default {
   methods: {
     getUpcomingEvents () {
       this.$API.events.getUpcomingEvents().then((response) => {
-        window.console.log(response.data)
+        console.log(response.data)
         this.upcomingEvents = response.data
       })
     }
