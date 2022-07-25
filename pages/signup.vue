@@ -3,7 +3,9 @@
     <nuxt-link to="/">
       <img class="login-logo" src="~/assets/images/cec-icon.png" alt="">
     </nuxt-link>
-    <div class="signup d-flex flex-column justify-content-center align-items-center">
+    <div
+      class="signup d-flex flex-column justify-content-center align-items-center"
+    >
       <div class="mb-5 text-center">
         <h2 class="mb-2 signup-header">
           Kayıt Ol
@@ -13,66 +15,62 @@
         </p>
       </div>
 
-      <form action="" class="signup-form">
+      <form action="" class="signup-form" @submit.prevent="register">
         <div class="row">
           <div class="user-box">
-            <input type="text" name="" required="">
-            <label>
-              <ion-icon name="person-outline" />Ad
-            </label>
+            <input
+              v-model="firstName"
+              type="text"
+              name="firstName"
+              required=""
+            >
+            <label> <ion-icon name="person-outline" />Ad </label>
           </div>
 
           <div class="user-box">
-            <input type="text" name="" required="">
-            <label>
-              <ion-icon name="person-outline" />Soyad
-            </label>
+            <input v-model="lastName" type="text" name="" required="">
+            <label> <ion-icon name="person-outline" />Soyad </label>
           </div>
         </div>
 
         <div class="row">
           <div class="user-box">
-            <!--INPUT TYPE EMAİL VERİNCE VE İNPUTA EMAİL YAZMAYINCA CSS BOZULUYOR-->
-            <input type="text" name="" required="">
-            <label>
-              <ion-icon name="mail-outline" />E-mail
-            </label>
+            <!--!!!! INPUT TYPE EMAİL VERİNCE VE İNPUTA EMAİL YAZMAYINCA CSS BOZULUYOR-->
+            <input v-model="email" type="text" name="" required="">
+            <label> <ion-icon name="mail-outline" />E-mail </label>
           </div>
 
           <div class="user-box">
-            <input type="number" name="" required="">
-            <label>
-              <ion-icon name="call-outline" />Telefon Numarası
-            </label>
+            <input v-model="phone" type="text" name="" required="">
+            <label> <ion-icon name="call-outline" />Telefon Numarası </label>
           </div>
         </div>
 
         <div class="row">
           <div class="user-box">
-            <input type="text" name="" required="">
-            <label>
-              <ion-icon name="school-outline" />Bölüm
-            </label>
+            <input v-model="department" type="text" name="" required="">
+            <label> <ion-icon name="school-outline" />Bölüm </label>
           </div>
 
           <div class="user-box">
-            <input type="number" name="" required="">
-            <label>
-              <ion-icon name="school-outline" />Okul Numarası
-            </label>
+            <input v-model="school_number" type="text" name="" required="">
+            <label> <ion-icon name="school-outline" />Okul Numarası </label>
           </div>
         </div>
 
         <div class="row d-flex justify-content-between">
           <div class="user-box">
-            <input type="password" name="" required="">
-            <label>
-              <ion-icon name="lock-closed-outline" />Şifre
-            </label>
+            <input v-model="password1" type="password" name="" required="">
+            <label> <ion-icon name="lock-closed-outline" />Şifre </label>
           </div>
 
           <div class="user-box">
-            <input type="password" name="" required="true">
+            <input
+              v-model="password2"
+              type="password"
+              name=""
+              required="true"
+            >
             <label>
               <ion-icon name="lock-closed-outline" />Şifreyi Doğrula
             </label>
@@ -81,10 +79,8 @@
 
         <div class="row d-flex justify-content-between align-items-center">
           <div class="user-box">
-            <input type="number" name="" required="">
-            <label>
-              <ion-icon name="school-outline" />Sınıf
-            </label>
+            <input v-model="grade" type="text" name="" required="">
+            <label> <ion-icon name="school-outline" />Sınıf </label>
           </div>
 
           <div class="user-box d-flex flex-column">
@@ -92,9 +88,7 @@
               Kayıt Ol
             </button>
             <span class="signup-text">Hesabın var mı?
-              <nuxt-link to="/signin" style="" class="">
-                Giriş yap!
-              </nuxt-link>
+              <nuxt-link to="/signin" style="" class=""> Giriş yap! </nuxt-link>
             </span>
           </div>
         </div>
@@ -108,19 +102,52 @@
 <script>
 export default {
   name: 'SignUp',
-  data() {
-    return {}
+  data () {
+    return {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      department: '',
+      grade: '',
+      school_number: '',
+      password1: '',
+      password2: ''
+    }
   },
-  methods: {}
+  methods: {
+    async register () {
+      try {
+        await this.$axios.post('/accounts/create', {
+          first_name: this.firstName,
+          last_name: this.lastName,
+          email: this.email,
+          phone: this.phone,
+          department: this.department,
+          grade: this.grade,
+          school_number: this.school_number,
+          password1: this.password1,
+          password2: this.password2
+        })
+
+        await this.$auth
+          .loginWith('local', {
+            data: {
+              email: this.email,
+              password1: this.password1
+            }
+          })
+          .then(() => this.$router.push('/'))
+      } catch (error) {
+        window.console.log(error)
+      }
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 @import 'assets/scss/colors.scss';
-
-@media only screen and (max-width: 500px) {
-  // phone responsive
-}
 
 .picture {
   display: block;
@@ -130,7 +157,7 @@ export default {
   background-size: cover;
   min-height: 100vh;
 
-  @media screen and (max-width:750px) {
+  @media screen and (max-width: 750px) {
     display: none;
   }
 }
@@ -170,13 +197,13 @@ button {
     padding-left: 7px;
     transition: 0.4s ease all;
 
-    @media screen and (max-width:750px){
+    @media screen and (max-width: 750px) {
       border-color: white;
       color: white;
     }
 
-    &:focus~label,
-    &:valid~label {
+    &:focus ~ label,
+    &:valid ~ label {
       top: -26px;
       left: 0px;
       margin-left: 0;
@@ -190,8 +217,8 @@ button {
       border-bottom-color: red;
     }
 
-    &:focus~label>ion-icon,
-    &:valid~label>ion-icon {
+    &:focus ~ label > ion-icon,
+    &:valid ~ label > ion-icon {
       font-size: 0px;
     }
   }
@@ -226,24 +253,29 @@ ion-icon {
     padding-top: 100px;
   }
 
-  @media screen and (max-width:750px) {
+  @media screen and (max-width: 750px) {
     width: 100%;
-    background-image: linear-gradient(to bottom, rgba(51, 14, 11, 0.8), rgba(51, 14, 11, 0.9)), url('assets/images/hero1.jpg');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(51, 14, 11, 0.8),
+        rgba(51, 14, 11, 0.9)
+      ),
+      url('assets/images/hero1.jpg');
     background-size: cover;
   }
 
-  &-header,&-text{
-    @media screen and (max-width:750px){
+  &-header,
+  &-text {
+    @media screen and (max-width: 750px) {
       color: white;
     }
   }
 
   &-form {
-
     .row {
       flex-direction: row;
 
-      @media screen and (max-width:980px) {
+      @media screen and (max-width: 980px) {
         flex-direction: column;
       }
     }

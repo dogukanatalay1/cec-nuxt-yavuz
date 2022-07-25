@@ -15,11 +15,11 @@ const createStore = () => {
         state.fetchedEvents.push(event)
       },
       updateEvent (state, editedEvent) {
-        window.console.log('Mutations => ' + editedEvent)
+        // window.console.log('Mutations => ' + editedEvent)
         const eventIndex = state.fetchedEvents.findIndex(
           event => event.id === editedEvent.id
         )
-        window.console.log('Mutations | EVENT INDEX => ' + eventIndex)
+        // window.console.log('Mutations | EVENT INDEX => ' + eventIndex)
         state.fetchedEvents[eventIndex] = editedEvent
       },
       setAccounts (state, accounts) {
@@ -64,7 +64,7 @@ const createStore = () => {
         return this.$axios
           .put(process.env.BASE_URL + editedEvent.id + '.json', editedEvent)
           .then((response) => {
-            window.console.log('Action => ' + editedEvent)
+            // window.console.log('Action => ' + editedEvent)
             vuexContext.commit('updateEvent', editedEvent)
           })
           .catch(e => window.console.log(e))
