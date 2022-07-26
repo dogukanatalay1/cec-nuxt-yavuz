@@ -1,7 +1,7 @@
 <template>
   <section class="unlimited_possibilities">
     <div class="container">
-      <div class="row">
+      <div class="row mb-5">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
           <div class="sub_title">
             <h2>Kulübümüz size neler kazandırabilir?</h2>

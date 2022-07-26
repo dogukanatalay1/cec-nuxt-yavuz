@@ -5,6 +5,8 @@
   box-sizing: border-box;
 }
 
+@import 'assets/scss/colors.scss';
+
 /*
 * ----------------------------------------------------------------------------------------
 Author       : EcologyTheme
@@ -831,7 +833,7 @@ div#preloader {
 }
 
 .home_1_update .header_top .social_wrapper .social-items li a i {
-  color: #ffffff;
+  color: #fff;
   padding: 0;
   height: 30px;
   width: 30px;
@@ -2167,7 +2169,7 @@ header .edu_nav nav .search_area .navbar-nav li i:before {
 }
 
 footer {
-  background: #111b51;
+  background: darken($red, 34%);
   position: relative;
   z-index: 1;
   padding: 0 0 150px 0;
@@ -2186,7 +2188,7 @@ footer:before {
 }
 
 footer:after {
-  background: #111b51;
+  background: darken($red, 34%);
   position: absolute;
   content: "";
   top: 0;
@@ -2209,7 +2211,7 @@ footer .shape_wrapper {
 
 footer .shape_wrapper:before {
   border-radius: 0 0 0 50%;
-  background: #111b51;
+  background: darken($red, 34%);
   position: absolute;
   content: "";
   top: 0;
