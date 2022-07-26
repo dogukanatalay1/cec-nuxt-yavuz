@@ -3,6 +3,7 @@
   margin: 0;
   font-family: 'Josefin Sans', sans-serif;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 @import 'assets/scss/colors.scss';
@@ -2169,7 +2170,7 @@ header .edu_nav nav .search_area .navbar-nav li i:before {
 }
 
 footer {
-  background: darken($red, 34%);
+  background: darken($red, 45%);
   position: relative;
   z-index: 1;
   padding: 0 0 150px 0;
@@ -2188,7 +2189,7 @@ footer:before {
 }
 
 footer:after {
-  background: darken($red, 34%);
+  background: darken($red, 45%);
   position: absolute;
   content: "";
   top: 0;
@@ -2211,7 +2212,7 @@ footer .shape_wrapper {
 
 footer .shape_wrapper:before {
   border-radius: 0 0 0 50%;
-  background: darken($red, 34%);
+  background: darken($red, 45%);
   position: absolute;
   content: "";
   top: 0;

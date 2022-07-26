@@ -1,6 +1,9 @@
 <template>
   <section class="events-area">
     <div class="container">
+
+
+
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
           <div class="event_title_wrapper">
@@ -25,39 +28,16 @@
           </div>
         </div>
       </div>
+
+
       <div v-if="!upcomingpage">
-        <div
-          v-for="upcomingEvent in upcomingEvents.slice(0, 1)"
-          :key="upcomingEvent.id"
-          class="row upcoming-event"
-        >
+        <div v-for="upcomingEvent in upcomingEvents.slice(0, 1)" :key="upcomingEvent.id" class="row upcoming-event">
           <div class="col-sm-12 events_full_box">
             <div class="events_single">
-              <div class="event_banner">
-                <img
-                  src="@/assets/images/event.jpeg"
-                  alt=""
-                  class="img-fluid"
-                >
-              </div>
-              <div class="event_info">
-                <h3>
-                  {{ upcomingEvent.name }}
-                </h3>
-                <div class="events_time">
-                  <span class="time"><i
-                    class="flaticon-clock-circular-outline"
-                  />8.00Am-5.00</span>
-                  <span><i class="fas fa-map-marker-alt" />{{
-                    upcomingEvent.location
-                  }}</span>
-                </div>
-                <p>
-                  {{ upcomingEvent.statement }}
-                </p>
-                <div class="event_dete">
-                  <span class="date">
-                    {{
+
+              <div class="event_date">
+                <span class="date">
+                  {{
                       new Date(upcomingEvent.events_date).toLocaleString(
                         'tr-tr',
                         {
@@ -66,10 +46,47 @@
                           year: 'numeric'
                         }
                       )
-                    }}</span>
+                  }}
+                </span>
+              </div>
+
+              <div class="event_banner">
+                <img src="@/assets/images/event.jpeg" alt="" class="img-fluid">
+              </div>
+
+
+              <div class="event_info d-flex flex-column align-items-start">
+
+
+                <h3 class="mb-2">
+                  {{ upcomingEvent.name }}
+                </h3>
+
+
+
+                <div class="events_time d-flex flex-row align-items-center">
+                  <div class="events_time_content">
+                    <ion-icon name="time-outline" />
+                    <span class="ml-1">8.00Am-5.00</span>
+                  </div>
+
+                  <div class="events_time_content">
+                    <ion-icon name="location-outline" />
+                    <span class="ml-1">
+                      {{ upcomingEvent.location }}
+                    </span>
+                  </div>
                 </div>
-                <nuxt-link class="see-all-btn" :to="`${upcomingEvent.id}`">
-                  Aytıntıları Gör
+
+
+
+                <p class="event_info_text">
+                  <!-- {{ upcomingEvent.statement }} -->
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero velit explicabo numquam? Molestiae, autem!
+                </p>
+
+                <nuxt-link class="see-all-btn btn btn-danger" :to="`${upcomingEvent.id}`">
+                  Ayrıntıları Gör
                 </nuxt-link>
               </div>
             </div>
@@ -135,16 +152,16 @@ export default {
       type: Boolean
     }
   },
-  data () {
+  data() {
     return {
       upcomingEvents: []
     }
   },
-  created () {
+  created() {
     this.getUpcomingEvents()
   },
   methods: {
-    getUpcomingEvents () {
+    getUpcomingEvents() {
       this.$API.events.getUpcomingEvents().then((response) => {
         // console.log(response.data)
         this.upcomingEvents = response.data
@@ -157,19 +174,28 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/colors.scss';
 
+* {
+  transition: .4s ease-in-out all;
+}
+
+
+// deneme amaçlı koydum
+ion-icon{
+  color: $red;
+}
+
 .events-area {
   margin-top: -100px;
   background-image: url('assets/images/footerbg.png');
   background-color: lightgray;
   padding: 120px !important;
-  -webkit-mask-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(rgba(0, 0, 0, 1)),
-    to(rgba(0, 0, 0, 1))
-  );
+  -webkit-mask-image: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(0, 0, 0, 1)));
 }
+
 .upcoming-event {
   box-shadow: 6px 7px 6px grey;
   transition: 0.2s;
@@ -181,11 +207,96 @@ export default {
     transition: 0.2s;
   }
 }
-.event_dete {
-  height: 70px !important;
-  background-color: $red !important;
-  width: 80px !important;
+
+.upcoming-event {
+  margin-top: -30px;
+  width: 90%;
+  border-radius: 20px;
+  margin-bottom: 70px;
+
+  &:hover h3 {
+    color: $red;
+    
+  }
+
+  .events_full_box {
+    padding: 0 !important;
+
+    .events_single {
+      position: relative;
+
+      .event_date {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $red;
+        width: 75px;
+        height: 75px;
+        text-align: center;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        & span {
+          color: $white;
+        }
+
+      }
+
+      //event img
+      .event_banner {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        & img {
+          flex-shrink: 0;
+          min-width: 100%;
+          min-height: 100%;
+          border-top-left-radius: 20px !important;
+          border-bottom-left-radius: 20px !important;
+
+          @media screen and (max-width:770px) {
+            border-bottom-left-radius: 0 !important;
+            border-top-right-radius: 20px !important;
+          }
+        }
+      }
+
+      .event_info {
+        position: relative;
+
+        & h3 {
+          font-size: 48px !important;
+        }
+
+        .events_time {
+          padding: 30px 0 !important;
+
+          &_content{
+            font-size: 18px !important;
+            & span{
+              font-size: 18px !important;
+            }
+          }
+          
+        }
+
+        .event_info_text {
+          padding-bottom: 30px;
+          font-size: 22px;
+        }
+
+      }
+
+    }
+  }
+
 }
+
+
+
+
+
 
 .event_info {
   height: 100% !important;
@@ -197,16 +308,10 @@ export default {
 }
 
 .see-all-btn {
-  background-color: $about-black !important;
-  &:hover {
-    background-color: $red !important;
-  }
-}
+  background-color: $about-black  !important;
 
-.upcoming-event {
-  margin-top: -30px;
-  width: 90%;
-  border-radius: 0px 13px 0px 13px;
-  margin-bottom: 70px;
+  &:hover {
+    background-color: $red  !important;
+  }
 }
 </style>
