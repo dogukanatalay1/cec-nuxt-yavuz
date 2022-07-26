@@ -20,7 +20,7 @@
             Kitaplar
           </nuxt-link>
         </li>
-        <li><a class="menu-btn" href="#footer">İletişim</a></li>
+        <li><a class="menu-btn" href="#">İletişim</a></li>
       </ul>
       <nuxt-link class="login-btn d-flex justify-content-center" to="/signin">
         <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
