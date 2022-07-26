@@ -42,11 +42,12 @@
               </div>
               <div class="event_info">
                 <h3>
-                  <a href="#" title="">{{ upcomingEvent.name }}</a>
+                  {{ upcomingEvent.name }}
                 </h3>
                 <div class="events_time">
-                  <span class="time"><i class="flaticon-clock-circular-outline" />8.00 Am - 5.00
-                    Pm</span>
+                  <span class="time"><i
+                    class="flaticon-clock-circular-outline"
+                  />8.00Am-5.00</span>
                   <span><i class="fas fa-map-marker-alt" />{{
                     upcomingEvent.location
                   }}</span>
@@ -67,7 +68,7 @@
                       )
                     }}</span>
                 </div>
-                <nuxt-link class="btn btn-danger" :to="`${upcomingEvent.id}`">
+                <nuxt-link class="see-all-btn" :to="`${upcomingEvent.id}`">
                   Aytıntıları Gör
                 </nuxt-link>
               </div>
@@ -75,7 +76,7 @@
           </div>
         </div>
       </div>
-      <div v-else>
+      <!-- <div v-else>
         <div
           v-for="upcomingEvent in upcomingEvents"
           :key="upcomingEvent.id"
@@ -121,7 +122,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
@@ -145,7 +146,7 @@ export default {
   methods: {
     getUpcomingEvents () {
       this.$API.events.getUpcomingEvents().then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         this.upcomingEvents = response.data
       })
     }
@@ -160,7 +161,14 @@ export default {
   margin-top: -100px;
   background-image: url('assets/images/footerbg.png');
   background-color: lightgray;
-  padding: 30px !important;
+  padding: 120px !important;
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 1))
+  );
 }
 .upcoming-event {
   box-shadow: 6px 7px 6px grey;
@@ -177,6 +185,15 @@ export default {
   height: 70px !important;
   background-color: $red !important;
   width: 80px !important;
+}
+
+.event_info {
+  height: 100% !important;
+  width: 100%;
+
+  h3 {
+    font-size: 38px !important;
+  }
 }
 
 .see-all-btn {

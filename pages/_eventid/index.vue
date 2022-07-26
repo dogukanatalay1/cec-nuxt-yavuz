@@ -1,6 +1,7 @@
 <template>
   <div>
     <EventsEventDetail v-if="singleEvent" :single-event="singleEvent" />
+    <!-- <EventsSingleEvent v-if="singleEvent" :single-event="singleEvent" /> -->
     <div v-else>
       <h1>Etkinliğin ayrıntı bilgileri bulunamadı...</h1>
     </div>

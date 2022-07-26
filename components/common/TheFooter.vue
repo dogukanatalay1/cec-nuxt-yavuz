@@ -37,22 +37,22 @@
               <ul class="social_items d-flex list-unstyled">
                 <li>
                   <a href="#" class="icon">
-                    <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-icon name="logo-facebook" />
                   </a>
                 </li>
                 <li>
                   <a href="#" class="icon">
-                    <ion-icon  name="logo-twitter"></ion-icon>
+                    <ion-icon name="logo-twitter" />
                   </a>
                 </li>
                 <li>
                   <a href="#" class="icon">
-                    <ion-icon  name="logo-linkedin"></ion-icon>
+                    <ion-icon name="logo-linkedin" />
                   </a>
                 </li>
                 <li>
                   <a href="#" class="icon">
-                    <ion-icon  name="logo-instagram"></ion-icon>
+                    <ion-icon name="logo-instagram" />
                   </a>
                 </li>
               </ul>
@@ -62,7 +62,12 @@
       </div>
     </div>
     <div class="shapes_bg">
-      <img src="@/assets/images/bg2.png" alt="" class="shape_3">
+      <img
+        src="@/assets/images/bg2.png"
+        style="width: 1270px"
+        alt=""
+        class="shape_3"
+      >
       <img src="@/assets/images/footer_2.png" alt="" class="shape_1">
     </div>
   </footer>
@@ -75,23 +80,25 @@ export default {}
 <style lang="scss" scoped>
 @import 'assets/scss/colors.scss';
 
-.row{
+.footer_2 {
+  background-color: $about-black !important;
+}
+
+.row {
   display: flex !important;
-  padding: 0 100px; 
+  padding: 0 100px;
   flex-direction: row !important;
   justify-content: space-around !important;
-
 }
 
-.icon{
+.icon {
   font-size: 32px !important;
   color: #fff;
-
 }
 
-ul li{
-  transition: .2s ease-in-out all;
-    &:hover{
+ul li {
+  transition: 0.2s ease-in-out all;
+  &:hover {
     transform: scale(1.1);
   }
 }

@@ -18,7 +18,7 @@
               <h3>
                 <a class="item-title" href="#" title="">Sosyal Etkinlikler</a>
               </h3>
-              <p>
+              <p class="text">
                 Birçok bölümden üye barındıran KTU CEC; sürekli olarak geziler
                 ve kahvaltılar gibi çeşitli etkinlikler düzenler ve bir çok yeni
                 insan ile keyifli zaman geçirmenizi sağlar.
@@ -36,7 +36,7 @@
               <h3>
                 <a class="item-title" href="#" title="">Sektörel Etkinlikler</a>
               </h3>
-              <p>
+              <p class="text">
                 Codenight ve farklı teknolojilere dair eğitim programları ile
                 yoğunlukla ilgilenen KTU CEC, mesleki anlamda iyi bağlantılar
                 edinebilmenizi ve yeni bakış açıları kazanabilmenizi sağlar.
@@ -54,7 +54,7 @@
               <h3>
                 <a class="item-title" href="#" title="">Kulüp Odamız</a>
               </h3>
-              <p>
+              <p class="text">
                 Kulüp odamızdan programlama kitapları teslim alabilir,
                 kütüphaneye nazaran daha rahat bir çalışma ortamı sunan odamızda
                 çalışabilir veya orada bulunan diğer insanlar ile farklı
@@ -77,6 +77,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/colors.scss';
+.unlimited_possibilities {
+  padding: 60px !important;
+}
 .single_item {
   box-shadow: 5px 7px 7px 5px darkgray;
   height: 320px;
@@ -88,23 +91,40 @@ export default {
   transform: scale(1.01);
 }
 
+a {
+  cursor: default;
+}
+
+.text {
+  color: black !important;
+}
+
 .item-title:hover {
   color: $red !important;
 }
 
 .unlimited_possibilities {
   background-image: url('assets/images/bg2.png');
-
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 1))
+  );
   background-repeat: no-repeat, repeat;
   background-size: cover;
 }
 
 .icon {
-  font-size: 36px;
+  font-size: 47px;
+  margin-bottom: -23px;
+  transition: ease-in-out 0.4s;
 
-  :hover {
-    transform: scale(1.1);
+  &:hover {
+    transform: scale(1.3);
     color: $red;
+    transition: ease-in-out 0.3s;
   }
 }
 </style>

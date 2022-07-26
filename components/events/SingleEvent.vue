@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12 col-sm-12 col-md-8 col-lg-8">
           <div class="blog_post">
-            <h3>Magazine Design Finish The Cover</h3>
+            <h3>{{ singleEvent.name }}</h3>
             <div class="post_by d-flex">
               <span>By -
                 <a
@@ -145,8 +145,26 @@
 
 <script>
 export default {
-  name: 'SingleEvent'
+  name: 'SingleEvent',
+  props: {
+    singleEvent: {
+      type: Object,
+      required: true
+    }
+  }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.blog_wrapper {
+  width: 100% !important;
+  padding: 0;
+}
+.container {
+  width: 100% !important;
+  margin: 0px;
+}
+.row {
+  width: 100% !important;
+}
+</style>
