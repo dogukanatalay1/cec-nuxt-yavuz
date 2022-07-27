@@ -178,14 +178,7 @@
                   <div class="events_time_content">
                     <ion-icon name="time-outline" />
                     <span class="ml-1">
-                      {{
-                        new Date(upcomingEvent.events_date).toLocaleString(
-                          'tr-tr',
-                          {
-                            clock: 'long'
-                          }
-                        )
-                      }}
+                      {{ format_date(upcomingEvent.events_date) }}
                     </span>
                   </div>
 
@@ -219,6 +212,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   name: 'UpComingEvents',
   props: {
@@ -240,6 +235,11 @@ export default {
         // console.log(response.data)
         this.upcomingEvents = response.data
       })
+    },
+    format_date (value) {
+      if (value) {
+        return moment(value).format('DD.MM.YYYY')
+      }
     }
   }
 }

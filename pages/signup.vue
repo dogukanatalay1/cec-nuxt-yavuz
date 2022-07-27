@@ -118,7 +118,7 @@ export default {
   methods: {
     async register () {
       try {
-        await this.$axios.post('/accounts/create', {
+        await this.$axios.post('accounts/create/', {
           first_name: this.firstName,
           last_name: this.lastName,
           email: this.email,
@@ -134,7 +134,7 @@ export default {
           .loginWith('local', {
             data: {
               email: this.email,
-              password1: this.password1
+              password: this.password1
             }
           })
           .then(() => this.$router.push('/'))

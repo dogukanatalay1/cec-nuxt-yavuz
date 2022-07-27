@@ -1,15 +1,19 @@
 <template>
   <div class="main-page">
-    <CommonHeroTest class="hero" />
+    <CommonHero class="hero" />
     <Opportunities class="opportunities" />
     <EventsUpcomingEvents />
-    <CommonTheFooter />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  mounted () {
+    if (this.$auth.loggedIn) {
+      console.log('loggedin')
+    }
+  }
 }
 </script>
 

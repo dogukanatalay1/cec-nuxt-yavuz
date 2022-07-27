@@ -3,6 +3,7 @@
     <!-- <CommonHero /> -->
     <Nuxt />
     <!-- <CommonTheFooter /> -->
+    <CommonTheFooter />
   </div>
 </template>
 

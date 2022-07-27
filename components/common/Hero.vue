@@ -123,7 +123,7 @@ export default {
   display: none;
   position: absolute;
   top: 100px;
-  left: 0;
+  left: 165px;
   height: 100vh;
   width: 100%;
 }

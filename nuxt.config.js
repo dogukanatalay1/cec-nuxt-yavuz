@@ -74,32 +74,31 @@ export default {
     }
   },
 
-  // auth: {
-  //   plugins: [{ src: '~/plugins/axios.js', ssr: true }], // <-- I put this, move from plugins array
-  //   strategies: {
-  //     local: {
-  //       endpoints: {
-  //         login: { url: 'accounts/login', method: 'post' },
-  //         logout: false,
-  //         user: {
-  //           url: 'accounts/profile',
-  //           method: 'get',
-  //           propertyName: false
-  //         }
-  //       },
-  //       tokenRequired: true
-  //       // tokenRequired: false
-  //     }
-  //   },
-  //   rewriteRedirects: false,
-  //   redirect: {
-  //     login: 'accounts/login/',
-  //     logout: 'accountslogin/',
-  //     home: '/',
-  //     user: 'accounts/profile/',
-  //     callback: '/'
-  //   }
-  // },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'accounts/login/', method: 'post' },
+          logout: false,
+          user: {
+            url: 'accounts/profile',
+            method: 'get',
+            propertyName: false
+          }
+        },
+        tokenRequired: true
+        // tokenRequired: false
+      }
+    },
+    rewriteRedirects: false,
+    redirect: {
+      login: 'accounts/login/',
+      logout: 'accounts/login/',
+      home: '/',
+      user: 'accounts/profile/',
+      callback: '/'
+    }
+  },
 
   /*
     {

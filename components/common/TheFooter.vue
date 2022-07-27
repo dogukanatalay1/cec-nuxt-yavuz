@@ -22,10 +22,26 @@
             <div class="footer_single_col">
               <h3>Hızlı Linkler</h3>
               <ul class="location_info quick_inf0">
-                <li><a href="#">Hakkımızda</a></li>
-                <li><a href="#">Etkinlikler</a></li>
-                <li><a href="#">Kitaplar</a></li>
-                <li><a href="#">Kayıt Ol</a></li>
+                <li>
+                  <nuxt-link to="/about">
+                    Hakkımızda
+                  </nuxt-link>
+                </li>
+                <li>
+                  <nuxt-link to="/events">
+                    Etkinlikler
+                  </nuxt-link>
+                </li>
+                <li>
+                  <nuxt-link to="/books">
+                    Kitaplar
+                  </nuxt-link>
+                </li>
+                <li>
+                  <nuxt-link to="/signup">
+                    Kayıt Ol
+                  </nuxt-link>
+                </li>
               </ul>
             </div>
           </div>
