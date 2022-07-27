@@ -5,7 +5,11 @@
         <div class="row pb-5">
           <div class="col-12 col-md-6 col-lg-4">
             <div class="footer_single_col footer_intro">
-              <img src="@/assets/images/cec-icon.png" alt="" class="f_logo">
+              <div
+                class="cecicon-container d-flex align-items-center justify-content-center"
+              >
+                <img src="@/assets/images/cec(1).png" alt="" class="f_logo">
+              </div>
               <p>
                 Ante amet vitae vulputate odio nulla vel pretium pulvinar
                 aenean. Rhoncus eget adipiscing etiam arcu. Ultricies justo
@@ -31,7 +35,7 @@
               <h3>Contact Us</h3>
               <p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
               <div class="contact_info">
-                <span>+000 124 325</span>
+                <span>555 555 55 55 </span>
                 <span class="email">cec@ktu.edu.tr</span>
               </div>
               <ul class="social_items d-flex list-unstyled">
@@ -84,6 +88,18 @@ export default {}
   background-color: $about-black !important;
 }
 
+.cecicon-container {
+  height: 100px;
+}
+
+.f_logo {
+  width: 100px;
+  height: 100px !important;
+}
+
+.red-span {
+  color: $red;
+}
 .row {
   display: flex !important;
   padding: 0 100px;

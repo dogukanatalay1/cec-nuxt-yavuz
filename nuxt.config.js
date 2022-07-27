@@ -62,19 +62,20 @@ export default {
 
   // -- -- auth -- -- //
 
-  // publicRuntimeConfig: {
-  //   axios: {
-  //     browserBaseURL: process.env.BROWSER_BASE_URL
-  //   }
-  // },
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
 
-  // privateRuntimeConfig: {
-  //   axios: {
-  //     baseURL: process.env.BASE_URL
-  //   }
-  // },
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL
+    }
+  },
 
   // auth: {
+  //   plugins: [{ src: '~/plugins/axios.js', ssr: true }], // <-- I put this, move from plugins array
   //   strategies: {
   //     local: {
   //       endpoints: {
@@ -87,18 +88,36 @@ export default {
   //         }
   //       },
   //       tokenRequired: true
-  //       // tokenRequired: true
+  //       // tokenRequired: false
   //     }
   //   },
   //   rewriteRedirects: false,
   //   redirect: {
-  //     login: 'login/',
-  //     logout: 'login/',
+  //     login: 'accounts/login/',
+  //     logout: 'accountslogin/',
   //     home: '/',
   //     user: 'accounts/profile/',
   //     callback: '/'
   //   }
   // },
+
+  /*
+    {
+      google: {
+          responseType: "code",
+          clientId:"<google client ID>",
+          codeChallengeMethod: "",
+          grantType: "authorization_code",
+          redirectUri: `${baseUrl}/verify-auth`,
+          token: {
+            property: "data.token",
+            required: true,
+            type: "",
+            maxAge: 18000,
+          }
+        }
+     }
+  */
 
   // ******* //
 

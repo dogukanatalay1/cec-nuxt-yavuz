@@ -4,28 +4,63 @@
       <h2 class="logo">
         <a class="logo-icon" href="#">KTU <span>CEC</span></a>
       </h2>
-      <ul>
-        <li>
-          <nuxt-link to="/about" class="menu-btn" href="#">
-            Hakkımızda
+
+      <div class="nav">
+        <ul>
+          <li>
+            <nuxt-link to="/about" class="menu-btn" href="#">
+              Hakkımızda
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/events" class="menu-btn" href="#">
+              Etkinlikler
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/books" class="menu-btn" href="#">
+              Kitaplar
+            </nuxt-link>
+          </li>
+          <li><a class="menu-btn" href="#">İletişim</a></li>
+        </ul>
+
+        <nuxt-link class="login-btn d-flex justify-content-center" to="/signin">
+          <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
+          <ion-icon style="font-size: 22px" name="log-out-outline" />
+        </nuxt-link>
+      </div>
+
+      <div id="hamburger-icon" @click="toggleMobileMenu()">
+        <div class="bar1" />
+        <div class="bar2" />
+        <div class="bar3" />
+        <ul class="mobile-menu">
+          <li>
+            <nuxt-link to="/about" class="menu-btn" href="#">
+              Hakkımızda
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/events" class="menu-btn" href="#">
+              Etkinlikler
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/books" class="menu-btn" href="#">
+              Kitaplar
+            </nuxt-link>
+          </li>
+          <li><a class="menu-btn" href="#">İletişim</a></li>
+          <nuxt-link
+            class="login-btn d-flex justify-content-center"
+            to="/signin"
+          >
+            <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
+            <ion-icon style="font-size: 22px" name="log-out-outline" />
           </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/events" class="menu-btn" href="#">
-            Etkinlikler
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/books" class="menu-btn" href="#">
-            Kitaplar
-          </nuxt-link>
-        </li>
-        <li><a class="menu-btn" href="#">İletişim</a></li>
-      </ul>
-      <nuxt-link class="login-btn d-flex justify-content-center" to="/signin">
-        <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
-        <ion-icon style="font-size: 22px" name="log-out-outline" />
-      </nuxt-link>
+        </ul>
+      </div>
     </nav>
   </div>
 </template>
@@ -35,6 +70,12 @@ export default {
   name: 'HeroComponent',
   data () {
     return {}
+  },
+  methods: {
+    toggleMobileMenu () {
+      const menu = document.querySelector('#hamburger-icon')
+      menu.classList.toggle('open')
+    }
   }
 }
 </script>
@@ -42,6 +83,61 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/main.scss';
 @import '@/assets/scss/colors.scss';
+
+#hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+
+  & div {
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s ease all;
+  }
+}
+
+.open .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2 {
+  opacity: 0;
+}
+
+.open .bar3 {
+  -webkit-transform: rotate(45deg) translate(-6px -8px);
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  .nav {
+    display: none;
+  }
+
+  #hamburger-icon {
+    display: block;
+  }
+}
+
 .hero {
   height: 100vh;
   width: 100%;
@@ -54,6 +150,7 @@ export default {
   left: 0;
   right: 0;
 }
+
 nav {
   display: flex;
   align-content: center;
@@ -68,24 +165,29 @@ nav {
   text-decoration: none;
   color: white;
 }
+
 .logo {
   color: white;
   font-size: 50px;
 }
+
 span {
   color: $red;
 }
+
 nav ul li {
   list-style-type: none;
   display: inline-block;
   padding: 10px 20px;
 }
+
 .menu-btn {
   color: white;
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
 }
+
 .menu-btn:hover {
   color: $red;
 }
@@ -102,6 +204,7 @@ nav ul li {
   transition: 0.4s;
   text-decoration: none;
 }
+
 .login-btn:hover {
   transform: scale(1.2);
   transition: 0.4s;

@@ -1,9 +1,6 @@
 <template>
   <section class="events-area">
     <div class="container">
-
-
-
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
           <div class="event_title_wrapper">
@@ -28,41 +25,41 @@
           </div>
         </div>
       </div>
-
-
       <div v-if="!upcomingpage">
-        <div v-for="upcomingEvent in upcomingEvents.slice(0, 1)" :key="upcomingEvent.id" class="row upcoming-event">
+        <div
+          v-for="upcomingEvent in upcomingEvents.slice(0, 1)"
+          :key="upcomingEvent.id"
+          class="row upcoming-event"
+        >
           <div class="col-sm-12 events_full_box">
             <div class="events_single">
-
               <div class="event_date">
                 <span class="date">
                   {{
-                      new Date(upcomingEvent.events_date).toLocaleString(
-                        'tr-tr',
-                        {
-                          month: 'long',
-                          day: 'numeric',
-                          year: 'numeric'
-                        }
-                      )
+                    new Date(upcomingEvent.events_date).toLocaleString(
+                      'tr-tr',
+                      {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                      }
+                    )
                   }}
                 </span>
               </div>
 
               <div class="event_banner">
-                <img src="@/assets/images/event.jpeg" alt="" class="img-fluid">
+                <img
+                  src="@/assets/images/event.jpeg"
+                  alt=""
+                  class="img-fluid"
+                >
               </div>
 
-
               <div class="event_info d-flex flex-column align-items-start">
-
-
                 <h3 class="mb-2">
                   {{ upcomingEvent.name }}
                 </h3>
-
-
 
                 <div class="events_time d-flex flex-row align-items-center">
                   <div class="events_time_content">
@@ -78,14 +75,16 @@
                   </div>
                 </div>
 
-
-
                 <p class="event_info_text">
                   <!-- {{ upcomingEvent.statement }} -->
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero velit explicabo numquam? Molestiae, autem!
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
+                  velit explicabo numquam? Molestiae, autem!
                 </p>
 
-                <nuxt-link class="see-all-btn btn btn-danger" :to="`${upcomingEvent.id}`">
+                <nuxt-link
+                  class="see-all-btn btn btn-danger"
+                  :to="`${upcomingEvent.id}`"
+                >
                   Ayrıntıları Gör
                 </nuxt-link>
               </div>
@@ -140,6 +139,81 @@
           </div>
         </div>
       </div> -->
+      <div v-if="upcomingpage">
+        <div
+          v-for="upcomingEvent in upcomingEvents"
+          :key="upcomingEvent.id"
+          class="row upcoming-event"
+        >
+          <div class="col-sm-12 events_full_box">
+            <div class="events_single">
+              <div class="event_date">
+                <span class="date">
+                  {{
+                    new Date(upcomingEvent.events_date).toLocaleString(
+                      'tr-tr',
+                      {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                      }
+                    )
+                  }}
+                </span>
+              </div>
+              <div class="event_banner">
+                <img
+                  src="@/assets/images/event.jpeg"
+                  alt=""
+                  class="img-fluid"
+                >
+              </div>
+
+              <div class="event_info d-flex flex-column align-items-start">
+                <h3 class="mb-2">
+                  {{ upcomingEvent.name }}
+                </h3>
+
+                <div class="events_time d-flex flex-row align-items-center">
+                  <div class="events_time_content">
+                    <ion-icon name="time-outline" />
+                    <span class="ml-1">
+                      {{
+                        new Date(upcomingEvent.events_date).toLocaleString(
+                          'tr-tr',
+                          {
+                            clock: 'long'
+                          }
+                        )
+                      }}
+                    </span>
+                  </div>
+
+                  <div class="events_time_content">
+                    <ion-icon name="location-outline" />
+                    <span class="ml-1">
+                      {{ upcomingEvent.location }}
+                    </span>
+                  </div>
+                </div>
+
+                <p class="event_info_text">
+                  <!-- {{ upcomingEvent.statement }} -->
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
+                  velit explicabo numquam? Molestiae, autem!
+                </p>
+
+                <nuxt-link
+                  class="see-all-btn btn btn-danger"
+                  :to="`${upcomingEvent.id}`"
+                >
+                  Ayrıntıları Gör
+                </nuxt-link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -152,16 +226,16 @@ export default {
       type: Boolean
     }
   },
-  data() {
+  data () {
     return {
       upcomingEvents: []
     }
   },
-  created() {
+  created () {
     this.getUpcomingEvents()
   },
   methods: {
-    getUpcomingEvents() {
+    getUpcomingEvents () {
       this.$API.events.getUpcomingEvents().then((response) => {
         // console.log(response.data)
         this.upcomingEvents = response.data
@@ -175,12 +249,11 @@ export default {
 @import '@/assets/scss/colors.scss';
 
 * {
-  transition: .4s ease-in-out all;
+  transition: 0.4s ease-in-out all;
 }
 
-
 // deneme amaçlı koydum
-ion-icon{
+ion-icon {
   color: $red;
 }
 
@@ -189,11 +262,13 @@ ion-icon{
   background-image: url('assets/images/footerbg.png');
   background-color: lightgray;
   padding: 120px !important;
-  -webkit-mask-image: -webkit-gradient(linear,
-      left top,
-      left bottom,
-      from(rgba(0, 0, 0, 1)),
-      to(rgba(0, 0, 0, 1)));
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 1))
+  );
 }
 
 .upcoming-event {
@@ -216,7 +291,6 @@ ion-icon{
 
   &:hover h3 {
     color: $red;
-    
   }
 
   .events_full_box {
@@ -238,7 +312,6 @@ ion-icon{
         & span {
           color: $white;
         }
-
       }
 
       //event img
@@ -255,7 +328,7 @@ ion-icon{
           border-top-left-radius: 20px !important;
           border-bottom-left-radius: 20px !important;
 
-          @media screen and (max-width:770px) {
+          @media screen and (max-width: 770px) {
             border-bottom-left-radius: 0 !important;
             border-top-right-radius: 20px !important;
           }
@@ -272,31 +345,22 @@ ion-icon{
         .events_time {
           padding: 30px 0 !important;
 
-          &_content{
+          &_content {
             font-size: 18px !important;
-            & span{
+            & span {
               font-size: 18px !important;
             }
           }
-          
         }
 
         .event_info_text {
           padding-bottom: 30px;
           font-size: 22px;
         }
-
       }
-
     }
   }
-
 }
-
-
-
-
-
 
 .event_info {
   height: 100% !important;
@@ -308,10 +372,10 @@ ion-icon{
 }
 
 .see-all-btn {
-  background-color: $about-black  !important;
+  background-color: $about-black !important;
 
   &:hover {
-    background-color: $red  !important;
+    background-color: $red !important;
   }
 }
 </style>

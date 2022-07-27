@@ -1,6 +1,6 @@
 <template>
   <div class="main-page">
-    <CommonHero class="hero" />
+    <CommonHeroTest class="hero" />
     <Opportunities class="opportunities" />
     <EventsUpcomingEvents />
     <CommonTheFooter />
