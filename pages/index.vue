@@ -9,9 +9,10 @@
 <script>
 export default {
   name: 'IndexPage',
-  mounted () {
+  created () {
     if (this.$auth.loggedIn) {
       console.log('loggedin')
+      // this.$auth.fetchUser()
     }
   }
 }

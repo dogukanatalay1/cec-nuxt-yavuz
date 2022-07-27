@@ -59,6 +59,14 @@
             <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
             <ion-icon style="font-size: 22px" name="log-out-outline" />
           </nuxt-link>
+          <button
+            v-if="$auth.loggedIn"
+            class="login-btn d-flex justify-content-center"
+            @click="logout()"
+          >
+            <span style="color: #fff" class="mr-2"> Çıkış Yap </span>
+            <ion-icon style="font-size: 22px" name="log-out-outline" />
+          </button>
         </ul>
       </div>
     </nav>
@@ -75,6 +83,9 @@ export default {
     toggleMobileMenu () {
       const menu = document.querySelector('#hamburger-icon')
       menu.classList.toggle('open')
+    },
+    logout () {
+      this.$auth.logout()
     }
   }
 }
