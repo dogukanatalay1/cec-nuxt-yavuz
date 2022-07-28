@@ -78,10 +78,10 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: 'accounts/login/', method: 'post' },
+          login: { url: 'accounts/login/', method: 'post', propertyName: 'access' },
           logout: false,
           user: {
-            url: 'accounts/profile',
+            url: 'accounts/profile/',
             method: 'get',
             propertyName: false
           }
@@ -94,8 +94,8 @@ export default {
     redirect: {
       login: 'accounts/login/',
       logout: 'accounts/login/',
-      home: '/',
-      user: 'accounts/profile/',
+      home: '/books',
+      user: 'profile',
       callback: '/'
     }
   },

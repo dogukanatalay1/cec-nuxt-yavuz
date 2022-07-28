@@ -53,6 +53,7 @@
           </li>
           <li><a class="menu-btn" href="#">İletişim</a></li>
           <nuxt-link
+            v-if="!$auth.loggedIn"
             class="login-btn d-flex justify-content-center"
             to="/signin"
           >

@@ -138,7 +138,7 @@ export default {
             }
           })
           .then(() => this.$router.push('/'))
-          .then(console.log(this.$auth.loggedIn))
+          .then(window.console.log(this.$auth.loggedIn))
       } catch (error) {
         window.console.log(error)
       }

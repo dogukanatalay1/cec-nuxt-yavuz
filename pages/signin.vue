@@ -61,9 +61,13 @@ export default {
               password: this.password
             }
           })
-          .then(() => this.$router.push('/'))
+          .then(() => this.$router.push('/books'))
+          .then(() =>
+            window.console.log('loggedIn (signin.vue) ' + this.$auth.loggedIn)
+          )
+          .then(console.log(this.$auth))
       } catch (error) {
-        console.log(error)
+        window.console.log(error)
       }
     }
   }
