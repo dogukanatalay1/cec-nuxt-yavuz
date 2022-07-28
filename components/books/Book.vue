@@ -47,14 +47,17 @@ export default {
 @import '@/assets/scss/colors.scss';
 @import '@/assets/scss/main.scss';
 
+
+*{
+  transition: .4s ease-in-out all;
+}
 .book {
   margin: 10px 0;
   padding: 20px 5px;
   transition: 0.5s ease all;
   cursor: pointer;
-  // background-color: $red;
-  background-color: #c81d11;
-  border-radius: 10px;
+  border-bottom: 1px solid $red;
+  
   transition: 0.4s;
 
   &-inner-title {
@@ -104,16 +107,20 @@ export default {
 
 @keyframes usttengel {
   0% {
-    transform: scaleY(0);
+    height: 0;
   }
 
-  100% {
-    transform: scaleY(1);
+  50% {
+    height: 50%;
+  }
+
+  100%{
+    height: 100%;
   }
 }
 
 .black {
-  color: black;
+  color: $red;
   font-size: 16px;
 }
 </style>

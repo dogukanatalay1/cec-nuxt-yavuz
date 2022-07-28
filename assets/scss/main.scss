@@ -1,12 +1,14 @@
+@import 'assets/scss/colors.scss';
+
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
-@import 'assets/scss/colors.scss';
+
 
 /*
 * ----------------------------------------------------------------------------------------
@@ -253,7 +255,7 @@ div#preloader {
   width: 100%;
   height: 100%;
   overflow: visible;
- // background: #ffffff url("../images/preloader.gif") no-repeat center center;
+  // background: #ffffff url("../images/preloader.gif") no-repeat center center;
   z-index: 9999999;
 }
 
@@ -316,7 +318,7 @@ div#preloader {
   background: #161616;
   opacity: 0.92;
   z-index: -1;
- // cursor: url("../images/cursor.png"), auto;
+  // cursor: url("../images/cursor.png"), auto;
 }
 
 .login_popup {
@@ -1075,7 +1077,7 @@ div#preloader {
 
 // header {
 //   /*=======[ Index nav Style ]========*/
-  
+
 // }
 
 header .header_top {
@@ -3005,7 +3007,7 @@ footer .shapes1_footer {
 .our_instructors .team-single-item figure figcaption:before {
   position: absolute;
   content: "";
- // background: url(../images/shapes/team_shape.png) no-repeat center center;
+  // background: url(../images/shapes/team_shape.png) no-repeat center center;
   height: 263px;
   width: 470px;
   left: 50%;
@@ -4636,7 +4638,7 @@ footer .shapes1_footer {
 }
 
 .header_inner .intro_wrapper {
- // background: url("../images/banner/banner_3.png") no-repeat center center;
+  // background: url("../images/banner/banner_3.png") no-repeat center center;
   min-height: 300px;
   background-size: cover;
   position: relative;
@@ -4894,7 +4896,7 @@ footer .shapes1_footer {
 .blog_wrapper .single_without_img:before {
   position: absolute;
   content: "";
- //  background: url(../images/shapes/shape_bullet.png) repeat center center;
+  //  background: url(../images/shapes/shape_bullet.png) repeat center center;
   height: 100%;
   width: 100%;
   left: 0;
@@ -9217,4 +9219,3 @@ footer .round_shape {
 .demo-style-switch .font-selection li div:hover {
   color: #008ed6;
 }
-

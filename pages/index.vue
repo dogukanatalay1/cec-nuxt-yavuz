@@ -31,6 +31,6 @@ export default {
 
 .opportunities {
   position: relative;
-  margin-top: 110vh;
+  margin-top: 100vh;
 }
 </style>

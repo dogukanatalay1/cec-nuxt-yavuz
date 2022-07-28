@@ -1,59 +1,59 @@
 <template>
-  <section class="events-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-          <div class="event_title_wrapper">
-            <div class="sub_title">
-              <h2>Yaklaşan Etkinlikler</h2>
-              <p>
-                Websitemizde yaklaşan etlinlikleri inceleyebilir ve dilerseniz
-                katılmak için başvurabilirsiniz.
-              </p>
-              <div v-if="!upcomingpage" class="envent_all_view">
-                <nuxt-link to="/upcoming" class="see-all-btn" href="#" title="">
-                  Tümünü Gör
-                </nuxt-link>
-              </div>
-              <div v-else class="envent_all_view">
-                <nuxt-link to="/" class="see-all-btn" href="#" title="">
-                  Geri Dön
-                </nuxt-link>
-              </div>
-            </div>
-            <!-- ends: .section-header -->
-          </div>
+  <section class="events-area d-flex justify-content-center align-items-center">
+
+    <div class="events-area-container">
+
+      <div class="header">
+        <h2 class="events-area-container-header text-center mb-4">Yaklaşan Etkinlikler</h2>
+
+        <p class="events-area-container-text text-center mb-5">
+          Websitemizde yaklaşan etlinlikleri inceleyebilir ve dilerseniz
+          katılmak için başvurabilirsiniz.
+        </p>
+
+        <div v-if="!upcomingpage" class="envent_all_view">
+          <nuxt-link to="/upcoming" class="see-all-btn btn btn-danger" href="#" title="">
+            Tümünü Gör
+          </nuxt-link>
+        </div>
+
+        <div v-else class="envent_all_view">
+          <nuxt-link to="/" class="see-all-btn btn btn-danger" href="#" title="">
+            Geri Dön
+          </nuxt-link>
         </div>
       </div>
+
+
+      <div class="deneme">
+
+      </div>
+
+
+
+
+      <!-- ana sayfa kısmı -->
       <div v-if="!upcomingpage">
-        <div
-          v-for="upcomingEvent in upcomingEvents.slice(0, 1)"
-          :key="upcomingEvent.id"
-          class="row upcoming-event"
-        >
+        <div v-for="upcomingEvent in upcomingEvents.slice(0, 1)" :key="upcomingEvent.id" class="row upcoming-event">
           <div class="col-sm-12 events_full_box">
             <div class="events_single">
               <div class="event_date">
                 <span class="date">
                   {{
-                    new Date(upcomingEvent.events_date).toLocaleString(
-                      'tr-tr',
-                      {
-                        month: 'long',
-                        day: 'numeric',
-                        year: 'numeric'
-                      }
-                    )
+                      new Date(upcomingEvent.events_date).toLocaleString(
+                        'tr-tr',
+                        {
+                          month: 'long',
+                          day: 'numeric',
+                          year: 'numeric'
+                        }
+                      )
                   }}
                 </span>
               </div>
 
               <div class="event_banner">
-                <img
-                  src="@/assets/images/event.jpeg"
-                  alt=""
-                  class="img-fluid"
-                >
+                <img src="@/assets/images/event.jpeg" alt="" class="">
               </div>
 
               <div class="event_info d-flex flex-column align-items-start">
@@ -81,17 +81,22 @@
                   velit explicabo numquam? Molestiae, autem!
                 </p>
 
-                <nuxt-link
-                  class="see-all-btn btn btn-danger"
-                  :to="`${upcomingEvent.id}`"
-                >
+                <nuxt-link class="see-all-btn btn btn-danger" :to="`${upcomingEvent.id}`">
                   Ayrıntıları Gör
                 </nuxt-link>
               </div>
             </div>
+
           </div>
+
         </div>
       </div>
+
+
+
+
+
+
       <!-- <div v-else>
         <div
           v-for="upcomingEvent in upcomingEvents"
@@ -139,34 +144,33 @@
           </div>
         </div>
       </div> -->
+
+
+
+
+
+      <!-- tümünü gör kısmı -->
+
       <div v-if="upcomingpage">
-        <div
-          v-for="upcomingEvent in upcomingEvents"
-          :key="upcomingEvent.id"
-          class="row upcoming-event"
-        >
+        <div v-for="upcomingEvent in upcomingEvents" :key="upcomingEvent.id" class="row upcoming-event">
           <div class="col-sm-12 events_full_box">
             <div class="events_single">
               <div class="event_date">
                 <span class="date">
                   {{
-                    new Date(upcomingEvent.events_date).toLocaleString(
-                      'tr-tr',
-                      {
-                        month: 'long',
-                        day: 'numeric',
-                        year: 'numeric'
-                      }
-                    )
+                      new Date(upcomingEvent.events_date).toLocaleString(
+                        'tr-tr',
+                        {
+                          month: 'long',
+                          day: 'numeric',
+                          year: 'numeric'
+                        }
+                      )
                   }}
                 </span>
               </div>
               <div class="event_banner">
-                <img
-                  src="@/assets/images/event.jpeg"
-                  alt=""
-                  class="img-fluid"
-                >
+                <img src="@/assets/images/event.jpeg" alt="" class="img-fluid">
               </div>
 
               <div class="event_info d-flex flex-column align-items-start">
@@ -196,10 +200,7 @@
                   velit explicabo numquam? Molestiae, autem!
                 </p>
 
-                <nuxt-link
-                  class="see-all-btn btn btn-danger"
-                  :to="`${upcomingEvent.id}`"
-                >
+                <nuxt-link class="see-all-btn btn btn-danger" :to="`${upcomingEvent.id}`">
                   Ayrıntıları Gör
                 </nuxt-link>
               </div>
@@ -208,6 +209,8 @@
         </div>
       </div>
     </div>
+
+
   </section>
 </template>
 
@@ -221,22 +224,22 @@ export default {
       type: Boolean
     }
   },
-  data () {
+  data() {
     return {
       upcomingEvents: []
     }
   },
-  created () {
+  created() {
     this.getUpcomingEvents()
   },
   methods: {
-    getUpcomingEvents () {
+    getUpcomingEvents() {
       this.$API.events.getUpcomingEvents().then((response) => {
         // console.log(response.data)
         this.upcomingEvents = response.data
       })
     },
-    format_date (value) {
+    format_date(value) {
       if (value) {
         return moment(value).format('DD.MM.YYYY')
       }
@@ -261,33 +264,38 @@ ion-icon {
   margin-top: -100px;
   background-image: url('assets/images/footerbg.png');
   background-color: lightgray;
-  padding: 120px !important;
-  -webkit-mask-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(rgba(0, 0, 0, 1)),
-    to(rgba(0, 0, 0, 1))
-  );
+  -webkit-mask-image: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(0, 0, 0, 1)));
+
+  &-container {
+    width: 90%;
+
+    &-header {
+      font-size: 50px;
+    }
+
+    &-text {
+      font-size: 20px;
+    }
+  }
 }
 
 .upcoming-event {
-  box-shadow: 6px 7px 6px grey;
-  transition: 0.2s;
-  background-color: #fff;
   margin-top: 30px;
+  background-color: #fff;
+  transition: 0.2s;
+  box-shadow: 6px 7px 6px grey;
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 70px;
 
   &:hover {
     box-shadow: 8px 10px 8px grey;
     transition: 0.2s;
   }
-}
-
-.upcoming-event {
-  margin-top: -30px;
-  width: 90%;
-  border-radius: 20px;
-  margin-bottom: 70px;
 
   &:hover h3 {
     color: $red;
@@ -309,10 +317,13 @@ ion-icon {
         text-align: center;
         border-top-right-radius: 20px;
         border-bottom-left-radius: 20px;
+
         & span {
           color: $white;
         }
       }
+
+
 
       //event img
       .event_banner {
@@ -321,10 +332,10 @@ ion-icon {
         justify-content: center;
         align-items: center;
         overflow: hidden;
+
         & img {
-          flex-shrink: 0;
-          min-width: 100%;
-          min-height: 100%;
+          width: 100%;
+          height: 100%;
           border-top-left-radius: 20px !important;
           border-bottom-left-radius: 20px !important;
 
@@ -347,6 +358,7 @@ ion-icon {
 
           &_content {
             font-size: 18px !important;
+
             & span {
               font-size: 18px !important;
             }
@@ -356,6 +368,8 @@ ion-icon {
         .event_info_text {
           padding-bottom: 30px;
           font-size: 22px;
+          font-family: 'Poppins', sans-serif;
+          font-weight: bold;
         }
       }
     }
@@ -372,10 +386,11 @@ ion-icon {
 }
 
 .see-all-btn {
-  background-color: $about-black !important;
+  font-size: 20px;
+  background-color: $about-black  !important;
 
   &:hover {
-    background-color: $red !important;
+    background-color: $red  !important;
   }
 }
 </style>
