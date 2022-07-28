@@ -8,13 +8,13 @@ const createStore = () => {
       books: []
     },
     mutations: {
-      setEvents(state, events) {
+      setEvents (state, events) {
         state.fetchedEvents = events
       },
-      addEvents(state, event) {
+      addEvents (state, event) {
         state.fetchedEvents.push(event)
       },
-      updateEvent(state, editedEvent) {
+      updateEvent (state, editedEvent) {
         // window.console.log('Mutations => ' + editedEvent)
         const eventIndex = state.fetchedEvents.findIndex(
           event => event.id === editedEvent.id
@@ -22,10 +22,10 @@ const createStore = () => {
         // window.console.log('Mutations | EVENT INDEX => ' + eventIndex)
         state.fetchedEvents[eventIndex] = editedEvent
       },
-      setAccounts(state, accounts) {
+      setAccounts (state, accounts) {
         state.accounts = accounts
       },
-      setBooks(state, books) {
+      setBooks (state, books) {
         state.books = books
       }
     },
@@ -46,10 +46,10 @@ const createStore = () => {
       //     vuexContext.commit('setEvents', eventArray)
       //   })
       // },
-      setEvents(vuexContext, events) {
+      setEvents (vuexContext, events) {
         vuexContext.commit('setEvents', events)
       },
-      addEvents(vuexContext, event) {
+      addEvents (vuexContext, event) {
         return this.$axios
           .post(process.env.BASE_URL + 'events.json', event)
           .then((response) => {
@@ -60,7 +60,7 @@ const createStore = () => {
             })
           })
       },
-      updateEvent(vuexContext, editedEvent) {
+      updateEvent (vuexContext, editedEvent) {
         return this.$axios
           .put(process.env.BASE_URL + editedEvent.id + '.json', editedEvent)
           .then((response) => {
@@ -71,10 +71,10 @@ const createStore = () => {
       }
     },
     getters: {
-      getEvents(state) {
+      getEvents (state) {
         return state.fetchedEvents
       },
-      getAccounts(state) {
+      getAccounts (state) {
         return state.accounts
       }
     }

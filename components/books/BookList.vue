@@ -21,16 +21,14 @@ export default {
   },
   watch: {
     bookName () {
-      setTimeout(function () {
-        axios
-          .get(
-            `https://ktucectest.herokuapp.com/api/books/?search=${this.bookName}`
-          )
-          .then((response) => {
-            this.books = response.data
-            console.log(response)
-          })
-      }, 2000)
+      axios
+        .get(
+          `https://ktucectest.herokuapp.com/api/books/?search=${this.bookName}`
+        )
+        .then((response) => {
+          this.books = response.data
+          // console.log(response)
+        })
     }
   },
   created () {

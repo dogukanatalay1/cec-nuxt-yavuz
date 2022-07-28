@@ -61,6 +61,7 @@ export default {
 <style lang="scss" scoped>
 .about_us {
   background-image: url('assets/images/map.png');
+  margin-bottom: 100px;
 }
 
 .img-fluid {
