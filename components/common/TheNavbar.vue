@@ -45,7 +45,15 @@
       <div class="bar3" />
       <ul class="mobile-menu">
         <li>
-          <nuxt-link to="/about" class="menu-btn" href="#">
+          <nuxt-link v-if="$nuxt.$route.path === '/'" to="/about" href="#">
+            Hakkımızda
+          </nuxt-link>
+          <nuxt-link
+            v-if="!$nuxt.$route.path === '/'"
+            style="color: black"
+            to="/about"
+            href="#"
+          >
             Hakkımızda
           </nuxt-link>
         </li>
