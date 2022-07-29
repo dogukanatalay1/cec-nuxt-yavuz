@@ -16,7 +16,7 @@
     <div class="nav">
       <ul>
         <li>
-          <nuxt-link to="/about" class="menu-btn" href="#">
+          <nuxt-link class="menu-btn" to="/about" href="#">
             Hakkımızda
           </nuxt-link>
         </li>
@@ -84,11 +84,6 @@
 <script>
 export default {
   name: 'NavbarVue',
-  props: {
-    mainPage: {
-      type: Boolean
-    }
-  },
   data () {
     return {}
   },

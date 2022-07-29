@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar :main-page="mainPage" />
+    <Navbar />
     <Nuxt />
     <CommonTheFooter />
   </div>

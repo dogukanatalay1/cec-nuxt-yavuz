@@ -20,7 +20,7 @@ import axios from 'axios'
 
 export default {
   name: 'BookList',
-  data() {
+  data () {
     return {
       books: [],
       bookName: ''
