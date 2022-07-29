@@ -44,6 +44,9 @@ export default {
     width: 100%;
     overflow: hidden;
     max-width: 700px;
+    @media screen and(max-width:750px){
+      margin-top: 200px;
+    }
 
     & h1,
     & p {

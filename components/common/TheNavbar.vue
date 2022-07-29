@@ -1,12 +1,7 @@
 <template>
   <nav>
     <h2 class="logo">
-      <nuxt-link
-        v-if="$nuxt.$route.path === '/'"
-        to="/"
-        class="logo-icon"
-        href="#"
-      >
+      <nuxt-link v-if="$nuxt.$route.path === '/'" to="/" class="logo-icon" href="#">
         KTU <span>CEC</span>
       </nuxt-link>
       <nuxt-link v-else class="logo-icon" to="/">
@@ -39,21 +34,23 @@
       </nuxt-link>
     </div>
 
+
+
+
+    <!--MOBILE NAVBAR-->
+
+
     <div id="hamburger-icon" @click="toggleMobileMenu()">
       <div class="bar1" />
       <div class="bar2" />
       <div class="bar3" />
+
       <ul class="mobile-menu">
         <li>
-          <nuxt-link v-if="$nuxt.$route.path === '/'" to="/about" href="#">
+          <nuxt-link class="menu-btn" v-if="$nuxt.$route.path === '/'" to="/about" href="#">
             Hakkımızda
           </nuxt-link>
-          <nuxt-link
-            v-if="!$nuxt.$route.path === '/'"
-            style="color: black"
-            to="/about"
-            href="#"
-          >
+          <nuxt-link class="menu-btn" v-if="!$nuxt.$route.path === '/'" style="color: black" to="/about" href="#">
             Hakkımızda
           </nuxt-link>
         </li>
@@ -68,19 +65,11 @@
           </nuxt-link>
         </li>
         <li><a class="menu-btn" href="#">İletişim</a></li>
-        <nuxt-link
-          v-if="!$auth.loggedIn"
-          class="login-btn d-flex justify-content-center"
-          to="/signin"
-        >
+        <nuxt-link v-if="!$auth.loggedIn" class="login-btn d-flex justify-content-center" to="/signin">
           <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
           <ion-icon style="font-size: 22px" name="log-out-outline" />
         </nuxt-link>
-        <button
-          v-if="$auth.loggedIn"
-          class="login-btn d-flex justify-content-center"
-          @click="logout()"
-        >
+        <button v-if="$auth.loggedIn" class="login-btn d-flex justify-content-center" @click="logout()">
           <span style="color: #fff" class="mr-2"> Çıkış Yap </span>
           <ion-icon style="font-size: 22px" name="log-out-outline" />
         </button>
@@ -90,17 +79,32 @@
 </template>
 
 <script>
+
 export default {
   name: 'NavbarVue',
-  data () {
-    return {}
+  data() {
+    return {
+      isClicked: false
+    }
   },
   methods: {
-    toggleMobileMenu () {
-      const menu = document.querySelector('#hamburger-icon')
-      menu.classList.toggle('open')
+    toggleMobileMenu() {
+      this.isClicked = !this.isClicked;
+      const menu = document.querySelector('#hamburger-icon');
+      const nav = document.querySelector('nav');
+      const mobilemenu = document.querySelector('.mobile-menu');
+      nav.classList.toggle('mb');
+      menu.classList.toggle('open');
+
+      if (this.isClicked) {
+        mobilemenu.style.transform = 'scale(1)';
+      }
+      else {
+        mobilemenu.style.transform = 'scale(0)';
+      }
+
     },
-    logout () {
+    logout() {
       this.$auth.logout()
     }
   }
@@ -110,6 +114,10 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/main.scss';
 
+.mb {
+  margin-bottom: 250px;
+}
+
 nav {
   display: flex;
   align-content: center;
@@ -117,6 +125,7 @@ nav {
   padding-top: 40px;
   padding-left: 5%;
   padding-right: 7%;
+  transition: .4s ease all;
 }
 
 .logo-icon {
@@ -202,18 +211,25 @@ nav ul li {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  transition: .4s ease all;
 }
 
 .mobile-menu {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transform: scale(0);
   position: absolute;
-  top: 100px;
-  left: 165px;
-  height: 100vh;
+  top: 110px;
+  left: 0;
   width: 100%;
+  z-index: 9999;
+  transition: .4s ease all;
 }
 
-@media screen and (max-width: 750px) {
+
+@media screen and (max-width: 975px) {
   .nav {
     display: none;
   }
