@@ -1,9 +1,18 @@
 <template>
   <nav>
     <h2 class="logo">
-      <a class="logo-icon" href="#">KTU <span>CEC</span></a>
+      <nuxt-link
+        v-if="$nuxt.$route.path === '/'"
+        to="/"
+        class="logo-icon"
+        href="#"
+      >
+        KTU <span>CEC</span>
+      </nuxt-link>
+      <nuxt-link v-else class="logo-icon" to="/">
+        <span style="color: black"> KTU </span><span>CEC</span>
+      </nuxt-link>
     </h2>
-
     <div class="nav">
       <ul>
         <li>
@@ -51,11 +60,19 @@
           </nuxt-link>
         </li>
         <li><a class="menu-btn" href="#">İletişim</a></li>
-        <nuxt-link v-if="!$auth.loggedIn" class="login-btn d-flex justify-content-center" to="/signin">
+        <nuxt-link
+          v-if="!$auth.loggedIn"
+          class="login-btn d-flex justify-content-center"
+          to="/signin"
+        >
           <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
           <ion-icon style="font-size: 22px" name="log-out-outline" />
         </nuxt-link>
-        <button v-if="$auth.loggedIn" class="login-btn d-flex justify-content-center" @click="logout()">
+        <button
+          v-if="$auth.loggedIn"
+          class="login-btn d-flex justify-content-center"
+          @click="logout()"
+        >
           <span style="color: #fff" class="mr-2"> Çıkış Yap </span>
           <ion-icon style="font-size: 22px" name="log-out-outline" />
         </button>
@@ -67,17 +84,20 @@
 <script>
 export default {
   name: 'NavbarVue',
-  data() {
-    return {
-
+  props: {
+    mainPage: {
+      type: Boolean
     }
   },
+  data () {
+    return {}
+  },
   methods: {
-    toggleMobileMenu() {
+    toggleMobileMenu () {
       const menu = document.querySelector('#hamburger-icon')
       menu.classList.toggle('open')
     },
-    logout() {
+    logout () {
       this.$auth.logout()
     }
   }
@@ -145,9 +165,6 @@ nav ul li {
   transform: scale(1.2);
   transition: 0.4s;
 }
-
-
-
 
 #hamburger-icon {
   margin: auto 0;

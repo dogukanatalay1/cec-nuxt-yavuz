@@ -1,10 +1,10 @@
 <template>
   <section class="events-area d-flex justify-content-center align-items-center">
-
     <div class="events-area-container">
-
       <div class="header">
-        <h2 class="events-area-container-header text-center mb-4">Yaklaşan Etkinlikler</h2>
+        <h2 class="events-area-container-header text-center mb-4">
+          Yaklaşan Etkinlikler
+        </h2>
 
         <p class="events-area-container-text text-center mb-5">
           Websitemizde yaklaşan etlinlikleri inceleyebilir ve dilerseniz
@@ -12,42 +12,50 @@
         </p>
 
         <div v-if="!upcomingpage" class="envent_all_view">
-          <nuxt-link to="/upcoming" class="see-all-btn btn btn-danger" href="#" title="">
+          <nuxt-link
+            to="/upcoming"
+            class="see-all-btn btn btn-danger"
+            href="#"
+            title=""
+          >
             Tümünü Gör
           </nuxt-link>
         </div>
 
         <div v-else class="envent_all_view">
-          <nuxt-link to="/" class="see-all-btn btn btn-danger" href="#" title="">
+          <nuxt-link
+            to="/"
+            class="see-all-btn btn btn-danger"
+            href="#"
+            title=""
+          >
             Geri Dön
           </nuxt-link>
         </div>
       </div>
 
-
-      <div class="deneme">
-
-      </div>
-
-
-
+      <div class="deneme" />
 
       <!-- ana sayfa kısmı -->
       <div v-if="!upcomingpage">
-        <div v-for="upcomingEvent in upcomingEvents.slice(0, 1)" :key="upcomingEvent.id" class="row upcoming-event">
+        <div
+          v-for="upcomingEvent in upcomingEvents.slice(0, 1)"
+          :key="upcomingEvent.id"
+          class="row upcoming-event"
+        >
           <div class="col-sm-12 events_full_box">
             <div class="events_single">
               <div class="event_date">
                 <span class="date">
                   {{
-                      new Date(upcomingEvent.events_date).toLocaleString(
-                        'tr-tr',
-                        {
-                          month: 'long',
-                          day: 'numeric',
-                          year: 'numeric'
-                        }
-                      )
+                    new Date(upcomingEvent.events_date).toLocaleString(
+                      'tr-tr',
+                      {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                      }
+                    )
                   }}
                 </span>
               </div>
@@ -81,21 +89,17 @@
                   velit explicabo numquam? Molestiae, autem!
                 </p>
 
-                <nuxt-link class="see-all-btn btn btn-danger" :to="`${upcomingEvent.id}`">
+                <nuxt-link
+                  class="see-all-btn btn btn-danger"
+                  :to="`${upcomingEvent.id}`"
+                >
                   Ayrıntıları Gör
                 </nuxt-link>
               </div>
             </div>
-
           </div>
-
         </div>
       </div>
-
-
-
-
-
 
       <!-- <div v-else>
         <div
@@ -145,32 +149,36 @@
         </div>
       </div> -->
 
-
-
-
-
       <!-- tümünü gör kısmı -->
 
       <div v-if="upcomingpage">
-        <div v-for="upcomingEvent in upcomingEvents" :key="upcomingEvent.id" class="row upcoming-event">
+        <div
+          v-for="upcomingEvent in upcomingEvents"
+          :key="upcomingEvent.id"
+          class="row upcoming-event"
+        >
           <div class="col-sm-12 events_full_box">
             <div class="events_single">
               <div class="event_date">
                 <span class="date">
                   {{
-                      new Date(upcomingEvent.events_date).toLocaleString(
-                        'tr-tr',
-                        {
-                          month: 'long',
-                          day: 'numeric',
-                          year: 'numeric'
-                        }
-                      )
+                    new Date(upcomingEvent.events_date).toLocaleString(
+                      'tr-tr',
+                      {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                      }
+                    )
                   }}
                 </span>
               </div>
               <div class="event_banner">
-                <img src="@/assets/images/event.jpeg" alt="" class="img-fluid">
+                <img
+                  src="@/assets/images/event.jpeg"
+                  alt=""
+                  class="img-fluid"
+                >
               </div>
 
               <div class="event_info d-flex flex-column align-items-start">
@@ -200,7 +208,10 @@
                   velit explicabo numquam? Molestiae, autem!
                 </p>
 
-                <nuxt-link class="see-all-btn btn btn-danger" :to="`${upcomingEvent.id}`">
+                <nuxt-link
+                  class="see-all-btn btn btn-danger"
+                  :to="`${upcomingEvent.id}`"
+                >
                   Ayrıntıları Gör
                 </nuxt-link>
               </div>
@@ -209,8 +220,6 @@
         </div>
       </div>
     </div>
-
-
   </section>
 </template>
 
@@ -224,22 +233,22 @@ export default {
       type: Boolean
     }
   },
-  data() {
+  data () {
     return {
       upcomingEvents: []
     }
   },
-  created() {
+  created () {
     this.getUpcomingEvents()
   },
   methods: {
-    getUpcomingEvents() {
+    getUpcomingEvents () {
       this.$API.events.getUpcomingEvents().then((response) => {
         // console.log(response.data)
         this.upcomingEvents = response.data
       })
     },
-    format_date(value) {
+    format_date (value) {
       if (value) {
         return moment(value).format('DD.MM.YYYY')
       }
@@ -264,11 +273,13 @@ ion-icon {
   margin-top: -100px;
   background-image: url('assets/images/footerbg.png');
   background-color: lightgray;
-  -webkit-mask-image: -webkit-gradient(linear,
-      left top,
-      left bottom,
-      from(rgba(0, 0, 0, 1)),
-      to(rgba(0, 0, 0, 1)));
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 1))
+  );
 
   &-container {
     width: 90%;
@@ -322,8 +333,6 @@ ion-icon {
           color: $white;
         }
       }
-
-
 
       //event img
       .event_banner {
@@ -387,10 +396,10 @@ ion-icon {
 
 .see-all-btn {
   font-size: 20px;
-  background-color: $about-black  !important;
+  background-color: $about-black !important;
 
   &:hover {
-    background-color: $red  !important;
+    background-color: $red !important;
   }
 }
 </style>

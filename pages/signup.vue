@@ -102,6 +102,7 @@
 <script>
 export default {
   name: 'SignUp',
+  layout: 'signpages',
   data () {
     return {
       firstName: '',

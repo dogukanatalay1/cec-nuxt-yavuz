@@ -1,10 +1,6 @@
 <template>
   <section class="about_us">
     <div class="container">
-      <nuxt-link class="btn btn-danger" to="/">
-        <ion-icon name="caret-back-outline" />
-        Geri Dön
-      </nuxt-link>
       <div class="row">
         <div class="col-12 col-sm-12 col-md-7 col-lg-7">
           <div class="about_title">

@@ -40,6 +40,7 @@
 <script>
 export default {
   name: 'SignIn',
+  layout: 'signpages',
   data () {
     return {
       email: '',
