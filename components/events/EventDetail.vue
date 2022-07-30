@@ -1,50 +1,54 @@
 <template>
-  <div
-    class="d-flex flex-column justify-content-center align-items-center m-auto"
-  >
+  <div class="d-flex flex-column container single-event">
+
     <div class="btn-container">
-      <nuxt-link to="/" class="btn btn-danger back-btn">
+      <nuxt-link to="/events" class="btn btn-danger back-btn">
         Geri Dön
       </nuxt-link>
     </div>
 
-    <div class="container">
-      <div class="cover" />
-      <div class="content">
-        <div class="title-container">
-          <span class="title"><b>{{ singleEvent.name }}</b></span>
-        </div>
-        <div class="content-body d-flex flex-column justify-content-between">
-          <div class="organizer-container mt-2 mb-5">
-            <span class="organizer">
-              Organizatör - Misafir : {{ singleEvent.organizer }}
-            </span>
-          </div>
-          <div class="statement-container">
-            <p class="statement">
-              {{ singleEvent.statement }}
-            </p>
-          </div>
+    <div class="single-event-info">
 
-          <div class="footer d-flex flex-row justify-content-between">
-            <div class="location-container">
-              <span>{{ singleEvent.location }}</span>
-            </div>
-            <div class="date-container">
-              <span>
-                {{
+      <div class="single-event-info-img">
+        <img src="@/assets/images/bg.jpg" alt="">
+      </div>
+
+      <div class="single-event-info-content">
+        <h1 class="single-event-info-content-header">{{ singleEvent.name }}
+        </h1>
+
+        <span class="single-event-info-content-organizer">
+          <b>
+            <ion-icon name="person-outline"></ion-icon>
+            Organizatör - Misafir :
+          </b> {{ singleEvent.organizer }}
+        </span>
+
+
+        <p class="single-event-info-content-statement">
+          {{ singleEvent.statement }}
+        </p>
+
+        <div class="single-event-info-content-date">
+
+          <span><b>
+              <ion-icon name="location-outline"></ion-icon>{{ singleEvent.location }}
+            </b></span>
+
+          <span><b>
+              <ion-icon name="calendar-outline"></ion-icon>
+              {{
                   new Date(singleEvent.events_date).toLocaleString('tr-tr', {
                     month: 'long',
                     day: 'numeric',
                     year: 'numeric'
                   })
-                }}
-              </span>
-            </div>
-          </div>
+              }}
+            </b></span>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -55,109 +59,106 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/colors.scss';
-@import '@/assets/scss/main.scss';
-
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-.btn-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 100%;
-  height: 1vh;
-}
-.back-btn {
-  width: 100px;
-  height: 30px;
-  font-size: 18px;
-  margin-top: 40px;
-  margin-left: 40px;
-  text-align: center;
+
+
+b {
+  color: $red;
 }
 
-.title-container {
-  border: 1px solid black;
+
+.single-event {
+  padding: 0;
+  margin-bottom: 200px;
+  margin-top: 50px;
+
+  &-info {
+    margin-top: 50px;
+    border-radius: 20px;
+    border: .4px solid #ddd;
+    height: 90vh;
+    box-shadow: 5px 5px 30px 20px #ddd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and(max-width:750px) {
+      flex-direction: column;
+    }
+
+
+    &-img {
+      width: 50%;
+      height: 100%;
+
+      @media screen and (max-width:750px) {
+        width: 100%;
+      }
+
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+
+        @media screen and (max-width:750px) {
+          border-top-right-radius: 20px;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+
+    &-content {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 20px;
+
+      @media screen and (max-width:750px) {
+        width: 100%;
+      }
+
+      & h1 {
+        font-size: 52px;
+        color: $about-black;
+        font-weight: 600;
+      }
+
+      & p{
+        font-size: 22px;
+      }
+
+      &-date {
+        & span:first-child {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
 }
+
 .container {
   width: 90%;
-  display: grid;
-  grid-template-columns: 40% 60%;
-  grid-template-areas: 'cover content';
-  box-shadow: -2px 0px 33px 0px rgba(0, 0, 0, 0.75);
-  margin-top: 5%;
 }
 
-.cover {
-  grid-area: cover;
-  height: 80vh;
 
-  //background-image: url('@/assets/images/kahvalti.jpeg');
-  background-size: cover;
-  background-position: center center;
-}
+.btn-container {}
 
-.footer {
-  border: 1px solid black;
-  position: relative;
-}
-.content {
-  grid-area: content;
-  background: #efefef;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: space-between;
-}
-.nav {
-  margin: 10px 20px;
-  height: 40px;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  color: gray;
-}
-.content-body {
-  display: flex;
-  flex-direction: row;
-  border: 1px solid black;
-  height: 80%;
-
-  .organizer-container {
-    border: 1px solid black;
-    height: 50px;
-    width: 100%;
-    display: block;
-  }
-
-  .statement-container {
-    border: 1px solid black;
-    display: block;
-    width: 80%;
-    padding: 10px;
-  }
-}
-
-.title {
-  font-size: 64px;
-  position: relative;
-  margin-left: 20%;
-  margin-bottom: 100px;
-}
-.prix {
-  margin: 50px 0px;
-  width: 45%;
-  display: flex;
-  justify-content: space-between;
-  border-left: 4px solid rgb(255, 177, 33);
-}
-.prix span {
-  padding-left: 10px;
-}
+.back-btn {}
 </style>

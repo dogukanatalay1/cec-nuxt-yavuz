@@ -207,11 +207,7 @@ nav ul li {
 }
 
 .open .mobile-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  transition: .4s ease all;
+
 }
 
 .mobile-menu {
