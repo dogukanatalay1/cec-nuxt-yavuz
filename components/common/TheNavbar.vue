@@ -1,7 +1,12 @@
 <template>
   <nav>
     <h2 class="logo">
-      <nuxt-link v-if="$nuxt.$route.path === '/'" to="/" class="logo-icon" href="#">
+      <nuxt-link
+        v-if="$nuxt.$route.path === '/'"
+        to="/"
+        class="logo-icon"
+        href="#"
+      >
         KTU <span>CEC</span>
       </nuxt-link>
       <nuxt-link v-else class="logo-icon" to="/">
@@ -34,11 +39,7 @@
       </nuxt-link>
     </div>
 
-
-
-
     <!--MOBILE NAVBAR-->
-
 
     <div id="hamburger-icon" @click="toggleMobileMenu()">
       <div class="bar1" />
@@ -47,10 +48,21 @@
 
       <ul class="mobile-menu">
         <li>
-          <nuxt-link class="menu-btn" v-if="$nuxt.$route.path === '/'" to="/about" href="#">
+          <nuxt-link
+            v-if="$nuxt.$route.path === '/'"
+            class="menu-btn"
+            to="/about"
+            href="#"
+          >
             Hakkımızda
           </nuxt-link>
-          <nuxt-link class="menu-btn" v-if="!$nuxt.$route.path === '/'" style="color: black" to="/about" href="#">
+          <nuxt-link
+            v-if="!$nuxt.$route.path === '/'"
+            class="menu-btn"
+            style="color: black"
+            to="/about"
+            href="#"
+          >
             Hakkımızda
           </nuxt-link>
         </li>
@@ -65,11 +77,19 @@
           </nuxt-link>
         </li>
         <li><a class="menu-btn" href="#">İletişim</a></li>
-        <nuxt-link v-if="!$auth.loggedIn" class="login-btn d-flex justify-content-center" to="/signin">
+        <nuxt-link
+          v-if="!$auth.loggedIn"
+          class="login-btn d-flex justify-content-center"
+          to="/signin"
+        >
           <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
           <ion-icon style="font-size: 22px" name="log-out-outline" />
         </nuxt-link>
-        <button v-if="$auth.loggedIn" class="login-btn d-flex justify-content-center" @click="logout()">
+        <button
+          v-if="$auth.loggedIn"
+          class="login-btn d-flex justify-content-center"
+          @click="logout()"
+        >
           <span style="color: #fff" class="mr-2"> Çıkış Yap </span>
           <ion-icon style="font-size: 22px" name="log-out-outline" />
         </button>
@@ -79,32 +99,29 @@
 </template>
 
 <script>
-
 export default {
   name: 'NavbarVue',
-  data() {
+  data () {
     return {
       isClicked: false
     }
   },
   methods: {
-    toggleMobileMenu() {
-      this.isClicked = !this.isClicked;
-      const menu = document.querySelector('#hamburger-icon');
-      const nav = document.querySelector('nav');
-      const mobilemenu = document.querySelector('.mobile-menu');
-      nav.classList.toggle('mb');
-      menu.classList.toggle('open');
+    toggleMobileMenu () {
+      this.isClicked = !this.isClicked
+      const menu = document.querySelector('#hamburger-icon')
+      const nav = document.querySelector('nav')
+      const mobilemenu = document.querySelector('.mobile-menu')
+      nav.classList.toggle('mb')
+      menu.classList.toggle('open')
 
       if (this.isClicked) {
-        mobilemenu.style.transform = 'scale(1)';
+        mobilemenu.style.transform = 'scale(1)'
+      } else {
+        mobilemenu.style.transform = 'scale(0)'
       }
-      else {
-        mobilemenu.style.transform = 'scale(0)';
-      }
-
     },
-    logout() {
+    logout () {
       this.$auth.logout()
     }
   }
@@ -125,7 +142,7 @@ nav {
   padding-top: 40px;
   padding-left: 5%;
   padding-right: 7%;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
 }
 
 .logo-icon {
@@ -150,7 +167,7 @@ nav ul li {
 }
 
 .menu-btn {
-  color: white;
+  color: $red;
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
@@ -207,7 +224,6 @@ nav ul li {
 }
 
 .open .mobile-menu {
-
 }
 
 .mobile-menu {
@@ -221,9 +237,8 @@ nav ul li {
   left: 0;
   width: 100%;
   z-index: 9999;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
 }
-
 
 @media screen and (max-width: 975px) {
   .nav {
