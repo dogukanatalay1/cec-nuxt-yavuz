@@ -30,7 +30,7 @@
             Kitaplar
           </nuxt-link>
         </li>
-        <li><a class="menu-btn" href="#">İletişim</a></li>
+        <li><a class="menu-btn" href="#footer">İletişim</a></li>
       </ul>
 
       <nuxt-link class="login-btn d-flex justify-content-center" to="/signin">
@@ -49,14 +49,19 @@
       <ul class="mobile-menu">
         <li>
           <nuxt-link
-            v-if="$nuxt.$route.path === '/'"
             class="menu-btn"
             to="/about"
             href="#"
           >
             Hakkımızda
           </nuxt-link>
-          <nuxt-link
+
+          <!--v-if="$nuxt.$route.path === '/'"-->
+
+
+
+
+          <!-- <nuxt-link
             v-if="!$nuxt.$route.path === '/'"
             class="menu-btn"
             style="color: black"
@@ -64,7 +69,11 @@
             href="#"
           >
             Hakkımızda
-          </nuxt-link>
+          </nuxt-link> -->
+
+
+
+
         </li>
         <li>
           <nuxt-link to="/events" class="menu-btn" href="#">
@@ -142,6 +151,7 @@ nav {
   padding-top: 40px;
   padding-left: 5%;
   padding-right: 7%;
+  padding-bottom: 30px;
   transition: 0.4s ease all;
 }
 
@@ -203,7 +213,7 @@ nav ul li {
   & div {
     width: 35px;
     height: 3px;
-    background-color: white;
+    background-color: $red;
     margin: 6px 0;
     transition: 0.4s ease all;
   }

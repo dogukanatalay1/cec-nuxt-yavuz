@@ -1,14 +1,44 @@
 <template>
   <div class="container mx-auto">
-    <div class="booklist d-flex flex-row justify-content-center align-items-start ">
+    <div class="booklist">
       <div class="booklist-content">
-        page content is here
+        <h1>KTÜ CEC Kütüphanesinden kitap alın</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quos quisquam voluptatum consequuntur,
+          obcaecati doloribus, distinctio eos, earum deleniti ipsa molestiae fuga dignissimos iure quidem eaque vel
+          voluptates ratione quod?</p>
+        <h2>Lorem ipsum dolor sit.
+        </h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis reprehenderit sunt voluptatibus, impedit
+          sit nobis rem optio illo eum? Repudiandae odio unde adipisci. Voluptates, suscipit exercitationem? Suscipit
+          reprehenderit vero iste ratione, autem quas modi, consequatur vel dolore unde, nam sequi!</p>
+        <h3>Lorem, ipsum dolor.
+        </h3>
+        <ul>
+          <li>Lorem, ipsum dolor.</li>
+          <li>Lorem ipsum dolor sit amet.
+          </li>
+          <li>Lorem, ipsum.
+          </li>
+          <li>Lorem ipsum dolor sit.
+          </li>
+        </ul>
+        <h2>Lorem ipsum dolor sit amet consectetur.
+        </h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est sapiente illum cupiditate! Ab facere provident
+          natus, consequuntur et quae repudiandae distinctio expedita sequi culpa beatae pariatur, eaque veritatis ipsa
+          tempore nisi? Quaerat nobis sunt atque provident voluptate modi, doloribus quisquam ad a reprehenderit quidem
+          saepe expedita cupiditate quis? Quae, dolore.</p>
+
+
       </div>
       <div class="books">
         <h3 class="books-header mb-5 mt-2">
           Kulübümüzde Bulunan Kitaplar
         </h3>
-        <input id="" v-model="bookName" name="bookName" type="text">
+        <div class="books-search">
+          <ion-icon name="search-outline"></ion-icon><input class="ml-2" v-model="bookName" name="bookName" type="text"
+            placeholder="Kitap Arayın" />
+        </div>
         <BooksBook v-for="book in books" :key="book.id" :book="book" />
       </div>
     </div>
@@ -20,7 +50,7 @@ import axios from 'axios'
 
 export default {
   name: 'BookList',
-  data () {
+  data() {
     return {
       books: [],
       bookName: ''
@@ -60,7 +90,17 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/colors.scss';
-@import '@/assets/scss/main.scss';
+
+ion-icon {
+  margin-left: 10px;
+}
+
+
+h1,
+h2,
+h3 {
+  font-weight: bold !important;
+}
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -81,17 +121,30 @@ export default {
   border-radius: 10px;
 }
 
-.container{
+.container {
   width: 94%;
 }
 
 .booklist {
   margin: 90px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+  @media screen and (max-width:750px) {
+    flex-direction: column-reverse;
+  }
 
   &-content {
     width: 65%;
-    border: 1px solid red;
     min-height: 100vh;
+    padding: 0 30px;
+
+    @media screen and (max-width:750px) {
+      width: 100%;
+      padding: 0;
+    }
   }
 
   .books {
@@ -101,10 +154,46 @@ export default {
     border: 1px solid black;
     border-radius: 5px;
     background-color: $about-black;
-    max-height: 70vh;
+    max-height: 100vh;
     overflow: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;
+
+    @media screen and (max-width:750px) {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 70px;
+    }
+
+    &-search {
+      border-radius: 5px;
+      border: 1px solid red;
+      display: flex;
+      flex-direction: row;
+      justify-content: stretch;
+      align-items: center;
+      background-color: white;
+
+      & input {
+        border: none;
+        border-radius: inherit;
+        width: 95%;
+        background-color: white;
+
+        &:focus,
+        &:valid {
+          outline: none;
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          transition: background-color 10000s;
+          -webkit-text-fill-color: #fff !important;
+        }
+      }
+    }
 
     &-header {
       text-align: center;
