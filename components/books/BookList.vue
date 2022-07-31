@@ -3,41 +3,49 @@
     <div class="booklist">
       <div class="booklist-content">
         <h1>KTÜ CEC Kütüphanesinden kitap alın</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quos quisquam voluptatum consequuntur,
-          obcaecati doloribus, distinctio eos, earum deleniti ipsa molestiae fuga dignissimos iure quidem eaque vel
-          voluptates ratione quod?</p>
-        <h2>Lorem ipsum dolor sit.
-        </h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis reprehenderit sunt voluptatibus, impedit
-          sit nobis rem optio illo eum? Repudiandae odio unde adipisci. Voluptates, suscipit exercitationem? Suscipit
-          reprehenderit vero iste ratione, autem quas modi, consequatur vel dolore unde, nam sequi!</p>
-        <h3>Lorem, ipsum dolor.
-        </h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quos
+          quisquam voluptatum consequuntur, obcaecati doloribus, distinctio eos,
+          earum deleniti ipsa molestiae fuga dignissimos iure quidem eaque vel
+          voluptates ratione quod?
+        </p>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+          reprehenderit sunt voluptatibus, impedit sit nobis rem optio illo eum?
+          Repudiandae odio unde adipisci. Voluptates, suscipit exercitationem?
+          Suscipit reprehenderit vero iste ratione, autem quas modi, consequatur
+          vel dolore unde, nam sequi!
+        </p>
+        <h3>Lorem, ipsum dolor.</h3>
         <ul>
           <li>Lorem, ipsum dolor.</li>
-          <li>Lorem ipsum dolor sit amet.
-          </li>
-          <li>Lorem, ipsum.
-          </li>
-          <li>Lorem ipsum dolor sit.
-          </li>
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Lorem, ipsum.</li>
+          <li>Lorem ipsum dolor sit.</li>
         </ul>
-        <h2>Lorem ipsum dolor sit amet consectetur.
-        </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est sapiente illum cupiditate! Ab facere provident
-          natus, consequuntur et quae repudiandae distinctio expedita sequi culpa beatae pariatur, eaque veritatis ipsa
-          tempore nisi? Quaerat nobis sunt atque provident voluptate modi, doloribus quisquam ad a reprehenderit quidem
-          saepe expedita cupiditate quis? Quae, dolore.</p>
-
-
+        <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est sapiente
+          illum cupiditate! Ab facere provident natus, consequuntur et quae
+          repudiandae distinctio expedita sequi culpa beatae pariatur, eaque
+          veritatis ipsa tempore nisi? Quaerat nobis sunt atque provident
+          voluptate modi, doloribus quisquam ad a reprehenderit quidem saepe
+          expedita cupiditate quis? Quae, dolore.
+        </p>
       </div>
       <div class="books">
         <h3 class="books-header mb-5 mt-2">
           Kulübümüzde Bulunan Kitaplar
         </h3>
         <div class="books-search">
-          <ion-icon name="search-outline"></ion-icon><input class="ml-2" v-model="bookName" name="bookName" type="text"
-            placeholder="Kitap Arayın" />
+          <ion-icon name="search-outline" /><input
+            v-model="bookName"
+            class="ml-2"
+            name="bookName"
+            type="text"
+            placeholder="Kitap Arayın"
+          >
         </div>
         <BooksBook v-for="book in books" :key="book.id" :book="book" />
       </div>
@@ -50,14 +58,14 @@ import axios from 'axios'
 
 export default {
   name: 'BookList',
-  data() {
+  data () {
     return {
       books: [],
       bookName: ''
     }
   },
   watch: {
-    bookName() {
+    bookName () {
       axios
         .get(
           `https://ktucectest.herokuapp.com/api/books/?search=${this.bookName}`
@@ -68,11 +76,11 @@ export default {
         })
     }
   },
-  created() {
+  created () {
     this.getBooks()
   },
   methods: {
-    getBooks() {
+    getBooks () {
       this.$API.books.getBooks().then((response) => {
         this.books = response.data
         // console.log(response)
@@ -94,7 +102,6 @@ export default {
 ion-icon {
   margin-left: 10px;
 }
-
 
 h1,
 h2,
@@ -126,13 +133,14 @@ h3 {
 }
 
 .booklist {
-  margin: 90px 0;
+  margin: 70px 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  margin-bottom: -20px;
 
-  @media screen and (max-width:750px) {
+  @media screen and (max-width: 750px) {
     flex-direction: column-reverse;
   }
 
@@ -141,7 +149,7 @@ h3 {
     min-height: 100vh;
     padding: 0 30px;
 
-    @media screen and (max-width:750px) {
+    @media screen and (max-width: 750px) {
       width: 100%;
       padding: 0;
     }
@@ -159,7 +167,7 @@ h3 {
     overflow-x: hidden;
     scroll-behavior: smooth;
 
-    @media screen and (max-width:750px) {
+    @media screen and (max-width: 750px) {
       width: 100%;
       margin: 0;
       margin-bottom: 70px;

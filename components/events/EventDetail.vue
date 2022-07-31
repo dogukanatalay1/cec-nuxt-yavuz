@@ -1,6 +1,5 @@
 <template>
   <div class="d-flex flex-column container single-event">
-
     <div class="btn-container">
       <nuxt-link to="/events" class="btn btn-danger back-btn">
         Geri Dön
@@ -8,47 +7,45 @@
     </div>
 
     <div class="single-event-info">
-
       <div class="single-event-info-img">
         <img src="@/assets/images/bg.jpg" alt="">
       </div>
 
       <div class="single-event-info-content">
-        <h1 class="single-event-info-content-header">{{ singleEvent.name }}
+        <h1 class="single-event-info-content-header">
+          {{ singleEvent.name }}
         </h1>
 
         <span class="single-event-info-content-organizer">
           <b>
-            <ion-icon name="person-outline"></ion-icon>
+            <ion-icon name="person-outline" />
             Organizatör - Misafir :
-          </b> {{ singleEvent.organizer }}
+          </b>
+          {{ singleEvent.organizer }}
         </span>
-
 
         <p class="single-event-info-content-statement">
           {{ singleEvent.statement }}
         </p>
 
         <div class="single-event-info-content-date">
+          <span><b>
+            <ion-icon name="location-outline" />{{ singleEvent.location }}
+          </b></span>
 
           <span><b>
-              <ion-icon name="location-outline"></ion-icon>{{ singleEvent.location }}
-            </b></span>
-
-          <span><b>
-              <ion-icon name="calendar-outline"></ion-icon>
-              {{
-                  new Date(singleEvent.events_date).toLocaleString('tr-tr', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric'
-                  })
-              }}
-            </b></span>
+            <ion-icon name="calendar-outline" />
+            {{
+              new Date(singleEvent.events_date).toLocaleString('tr-tr', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+              })
+            }}
+          </b></span>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -60,9 +57,7 @@ export default {
       required: true
     }
   },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 
@@ -70,12 +65,9 @@ export default {
 @import '@/assets/scss/colors.scss';
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-
-
 b {
   color: $red;
 }
-
 
 .single-event {
   padding: 0;
@@ -85,7 +77,7 @@ b {
   &-info {
     margin-top: 50px;
     border-radius: 20px;
-    border: .4px solid #ddd;
+    border: 0.4px solid #ddd;
     height: 90vh;
     box-shadow: 5px 5px 30px 20px #ddd;
     display: flex;
@@ -97,15 +89,13 @@ b {
       flex-direction: column;
     }
 
-
     &-img {
       width: 50%;
       height: 100%;
 
-      @media screen and (max-width:750px) {
+      @media screen and (max-width: 750px) {
         width: 100%;
       }
-
 
       & img {
         width: 100%;
@@ -114,7 +104,7 @@ b {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
 
-        @media screen and (max-width:750px) {
+        @media screen and (max-width: 750px) {
           border-top-right-radius: 20px;
           border-bottom-left-radius: 0;
         }
@@ -130,7 +120,7 @@ b {
       align-items: center;
       font-size: 20px;
 
-      @media screen and (max-width:750px) {
+      @media screen and (max-width: 750px) {
         width: 100%;
       }
 
@@ -140,7 +130,7 @@ b {
         font-weight: 600;
       }
 
-      & p{
+      & p {
         font-size: 22px;
       }
 
@@ -157,8 +147,9 @@ b {
   width: 90%;
 }
 
+.btn-container {
+}
 
-.btn-container {}
-
-.back-btn {}
+.back-btn {
+}
 </style>
