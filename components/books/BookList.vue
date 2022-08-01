@@ -138,7 +138,7 @@ h3 {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  margin-bottom: -20px;
+
 
   @media screen and (max-width: 750px) {
     flex-direction: column-reverse;

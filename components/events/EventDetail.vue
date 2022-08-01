@@ -1,7 +1,8 @@
 <template>
   <div class="d-flex flex-column container single-event">
     <div class="btn-container">
-      <nuxt-link to="/events" class="btn btn-danger back-btn">
+      <nuxt-link to="/events" class="btn btn-danger">
+        <ion-icon name="chevron-back-outline"></ion-icon>
         Geri Dön
       </nuxt-link>
     </div>
@@ -30,19 +31,19 @@
 
         <div class="single-event-info-content-date">
           <span><b>
-            <ion-icon name="location-outline" />{{ singleEvent.location }}
-          </b></span>
+              <ion-icon name="location-outline" />{{ singleEvent.location }}
+            </b></span>
 
           <span><b>
-            <ion-icon name="calendar-outline" />
-            {{
-              new Date(singleEvent.events_date).toLocaleString('tr-tr', {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric'
-              })
-            }}
-          </b></span>
+              <ion-icon name="calendar-outline" />
+              {{
+                  new Date(singleEvent.events_date).toLocaleString('tr-tr', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric'
+                  })
+              }}
+            </b></span>
         </div>
       </div>
     </div>
@@ -66,12 +67,14 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 .single-event-info-content-statement {
-  padding: 20px;
+  padding: 30px;
+  text-align: center;
 }
 
 b {
   color: $red;
 }
+
 
 .single-event {
   padding: 20px;
@@ -82,7 +85,7 @@ b {
     margin-top: 50px;
     border-radius: 20px;
     border: 0.4px solid #ddd;
-    height: 90vh;
+    height: 84vh;
     box-shadow: 5px 5px 30px 20px #ddd;
     display: flex;
     flex-direction: row;
@@ -91,6 +94,8 @@ b {
 
     @media screen and(max-width:750px) {
       flex-direction: column;
+      min-height: 90vh;
+      height: auto;
     }
 
     &-img {
@@ -123,6 +128,8 @@ b {
       justify-content: space-evenly;
       align-items: center;
       font-size: 20px;
+      text-align: center;
+      padding: 22px;
 
       @media screen and (max-width: 750px) {
         width: 100%;
@@ -132,6 +139,8 @@ b {
         font-size: 52px;
         color: $about-black;
         font-weight: 600;
+        margin-bottom: 14px;
+
       }
 
       & p {
@@ -149,11 +158,5 @@ b {
 
 .container {
   width: 90%;
-}
-
-.btn-container {
-}
-
-.back-btn {
 }
 </style>
