@@ -1,6 +1,9 @@
 <template>
   <div>
-    <EventsEvent />
+    <section>
+      <EventsEvent />
+      <!-- <pagination /> -->
+    </section>
   </div>
 </template>
 

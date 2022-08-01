@@ -65,12 +65,16 @@ export default {
 @import '@/assets/scss/colors.scss';
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+.single-event-info-content-statement {
+  padding: 20px;
+}
+
 b {
   color: $red;
 }
 
 .single-event {
-  padding: 0;
+  padding: 20px;
   margin-bottom: 200px;
   margin-top: 50px;
 
