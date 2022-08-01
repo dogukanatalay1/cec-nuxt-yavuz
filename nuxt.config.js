@@ -94,7 +94,7 @@ export default {
     redirect: {
       login: 'accounts/login/',
       logout: 'accounts/login/',
-      home: '/books',
+      home: '/',
       user: 'profile',
       callback: '/'
     }
