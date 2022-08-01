@@ -2,8 +2,10 @@
   <div class="hero">
     <div class="hero-content">
       <h1>KTU CEC'e hoşgeldiniz</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias beatae culpa, distinctio dolorum doloremque
-        quod!</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias beatae
+        culpa, distinctio dolorum doloremque quod!
+      </p>
     </div>
   </div>
 </template>
@@ -11,12 +13,10 @@
 <script>
 export default {
   name: 'HeroComponent',
-  data() {
+  data () {
     return {}
   },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 
@@ -44,7 +44,7 @@ export default {
     width: 100%;
     overflow: hidden;
     max-width: 700px;
-    @media screen and(max-width:974px){
+    @media screen and(max-width:974px) {
       margin-top: 200px;
     }
 
@@ -59,7 +59,7 @@ export default {
     & h1 {
       margin-bottom: 20px;
       font-size: 50px;
-      animation: 1.4s slide-right .8s forwards;
+      animation: 1.4s slide-right 0.8s forwards;
     }
 
     & p {
