@@ -13,7 +13,7 @@
           </div>
           <!-- ends: .section-header -->
         </div>
-        <div
+        <!-- <div
           v-for="event in events"
           :key="event.id"
           class="col-12 col-sm-6 col-md-6 col-lg-4"
@@ -56,8 +56,7 @@
               </div>
             </div>
           </div>
-          <!-- Ends: .single courses -->
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="shape_bg">
@@ -87,15 +86,6 @@ export default {
         this.events = response.data
       })
     }
-    /*
-    async getEvents () {
-      const data = axios.get('https://ktucectest.herokuapp.com/api/events/')
-      const result = await data
-      console.log(result)
-
-      this.events = result.data
-    }
-    */
   }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
-  <section class="events-area d-flex justify-content-center align-items-center">
+  <div />
+  <!-- <section class="events-area d-flex justify-content-center align-items-center">
     <div class="events-area-container">
       <div class="header">
         <h2 class="events-area-container-header text-center mb-4">
@@ -36,10 +37,9 @@
 
       <div class="deneme" />
 
-      <!-- ana sayfa kısmı -->
       <div v-if="!upcomingpage">
         <div
-          v-for="upcomingEvent in upcomingEvents.slice(0, 1)"
+          v-for="upcomingEvent in upcomingEvents"
           :key="upcomingEvent.id"
           class="row upcoming-event"
         >
@@ -61,7 +61,7 @@
               </div>
 
               <div class="event_banner">
-                <img src="@/assets/images/event.jpeg" alt="" class="">
+                <img :src="upcomingEvent.album[0].images[0].image" alt="">
               </div>
 
               <div class="event_info d-flex flex-column align-items-start">
@@ -84,9 +84,8 @@
                 </div>
 
                 <p class="event_info_text">
-                  <!-- {{ upcomingEvent.statement }} -->
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-                  velit explicabo numquam? Molestiae, autem!
+                  Statement gelecek ipsum dolor sit amet consectetur adipisicing
+                  elit. Vero velit explicabo numquam? Molestiae, autem!
                 </p>
 
                 <nuxt-link
@@ -100,56 +99,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div v-else>
-        <div
-          v-for="upcomingEvent in upcomingEvents"
-          :key="upcomingEvent.id"
-          class="row upcoming-event"
-        >
-          <div class="col-sm-12 events_full_box">
-            <div class="events_single">
-              <div class="event_banner">
-                <img
-                  src="@/assets/images/event.jpeg"
-                  alt=""
-                  class="img-fluid"
-                >
-              </div>
-              <div class="event_info">
-                <h3>
-                  <a href="#" title="">{{ upcomingEvent.name }}</a>
-                </h3>
-                <div class="events_time">
-                  <span class="time"><i class="flaticon-clock-circular-outline" />8.00 Am - 5.00
-                    Pm</span>
-                  <span><i class="fas fa-map-marker-alt" />{{
-                    upcomingEvent.location
-                  }}</span>
-                </div>
-                <p>
-                  {{ upcomingEvent.statement }}
-                </p>
-                <div class="event_dete">
-                  <span class="date">
-                    {{
-                      new Date(upcomingEvent.events_date).toLocaleString(
-                        'tr-tr',
-                        {
-                          month: 'long',
-                          day: 'numeric',
-                          year: 'numeric'
-                        }
-                      )
-                    }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- tümünü gör kısmı -->
 
       <div v-if="upcomingpage">
         <div
@@ -174,11 +123,7 @@
                 </span>
               </div>
               <div class="event_banner">
-                <img
-                  src="@/assets/images/event.jpeg"
-                  alt=""
-                  class="img-fluid"
-                >
+                <img :src="upcomingEvent.album[0].images[0].image" alt="">
               </div>
 
               <div class="event_info d-flex flex-column align-items-start">
@@ -203,9 +148,9 @@
                 </div>
 
                 <p class="event_info_text">
-                  <!-- {{ upcomingEvent.statement }} -->
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-                  velit explicabo numquam? Molestiae, autem!
+                  Buraya statement gelecek, ipsum dolor sit amet consectetur
+                  adipisicing elit. Vero velit explicabo numquam? Molestiae,
+                  autem!
                 </p>
 
                 <nuxt-link
@@ -220,41 +165,41 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 </template>
 
 <script>
-import moment from 'moment'
+// import moment from 'moment'
 
-export default {
-  name: 'UpComingEvents',
-  props: {
-    upcomingpage: {
-      type: Boolean
-    }
-  },
-  data () {
-    return {
-      upcomingEvents: []
-    }
-  },
-  created () {
-    this.getUpcomingEvents()
-  },
-  methods: {
-    getUpcomingEvents () {
-      this.$API.events.getUpcomingEvents().then((response) => {
-        console.log(response.data)
-        this.upcomingEvents = response.data
-      })
-    },
-    format_date (value) {
-      if (value) {
-        return moment(value).format('DD.MM.YYYY')
-      }
-    }
-  }
-}
+// export default {
+//   name: 'UpComingEvents',
+//   props: {
+//     upcomingpage: {
+//       type: Boolean
+//     }
+//   },
+//   data () {
+//     return {
+//       upcomingEvents: []
+//     }
+//   },
+//   created () {
+//     this.getUpcomingEvents()
+//   },
+//   methods: {
+//     getUpcomingEvents () {
+//       this.$API.events.getUpcomingEvents().then((response) => {
+//         console.log(response.data)
+//         this.upcomingEvents = response.data
+//       })
+//     },
+//     format_date (value) {
+//       if (value) {
+//         return moment(value).format('DD.MM.YYYY')
+//       }
+//     }
+//   }
+// }
 </script>
 
 <style lang="scss" scoped>

@@ -78,7 +78,11 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: 'accounts/login/', method: 'post', propertyName: 'access' },
+          login: {
+            url: 'accounts/login/',
+            method: 'post',
+            propertyName: 'access'
+          },
           logout: false,
           user: {
             url: 'accounts/profile/',

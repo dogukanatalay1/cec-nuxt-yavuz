@@ -2,14 +2,15 @@
   <div class="d-flex flex-column container single-event">
     <div class="btn-container">
       <nuxt-link to="/events" class="btn btn-danger">
-        <ion-icon name="chevron-back-outline"></ion-icon>
+        <ion-icon name="chevron-back-outline" />
         Geri Dön
       </nuxt-link>
     </div>
 
     <div class="single-event-info">
       <div class="single-event-info-img">
-        <img src="@/assets/images/bg.jpg" alt="">
+        <!-- <img src="@/assets/images/bg.jpg" alt=""> -->
+        <img :src="singleEvent.album[0].images[0].image">
       </div>
 
       <div class="single-event-info-content">
@@ -31,19 +32,19 @@
 
         <div class="single-event-info-content-date">
           <span><b>
-              <ion-icon name="location-outline" />{{ singleEvent.location }}
-            </b></span>
+            <ion-icon name="location-outline" />{{ singleEvent.location }}
+          </b></span>
 
           <span><b>
-              <ion-icon name="calendar-outline" />
-              {{
-                  new Date(singleEvent.events_date).toLocaleString('tr-tr', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric'
-                  })
-              }}
-            </b></span>
+            <ion-icon name="calendar-outline" />
+            {{
+              new Date(singleEvent.events_date).toLocaleString('tr-tr', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+              })
+            }}
+          </b></span>
         </div>
       </div>
     </div>
@@ -74,7 +75,6 @@ export default {
 b {
   color: $red;
 }
-
 
 .single-event {
   padding: 20px;
@@ -140,7 +140,6 @@ b {
         color: $about-black;
         font-weight: 600;
         margin-bottom: 14px;
-
       }
 
       & p {

@@ -47,9 +47,8 @@ export default {
 @import '@/assets/scss/colors.scss';
 @import '@/assets/scss/main.scss';
 
-
-*{
-  transition: .4s ease-in-out all;
+* {
+  transition: 0.4s ease-in-out all;
 }
 .book {
   margin: 10px 0;
@@ -57,7 +56,7 @@ export default {
   transition: 0.5s ease all;
   cursor: pointer;
   border-bottom: 1px solid $red;
-  
+
   transition: 0.4s;
 
   &-inner-title {
@@ -114,7 +113,7 @@ export default {
     height: 50%;
   }
 
-  100%{
+  100% {
     height: 100%;
   }
 }
