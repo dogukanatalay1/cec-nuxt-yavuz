@@ -49,8 +49,8 @@
               <h3>Contact Us</h3>
               <p>Ante amet vitae vulputate odio nulla vel pretium aenean.</p>
               <div class="contact_info">
-                <span>555 555 55 55 </span>
-                <span class="email">cec@ktu.edu.tr</span>
+                <a class="mr-2" href="tel:0555-555-55-55">0555 555 55 55</a>
+                <a style="color:red" href="mailto:cec@ktu.edu.tr">cec@ktu.edu.tr</a>
               </div>
               <ul class="social_items d-flex list-unstyled">
                 <li>
@@ -154,5 +154,11 @@ ul li a:hover {
 
 ul li a::before {
   display: none;
+}
+
+.contact_info {
+  a {
+    color: $white;
+  }
 }
 </style>
