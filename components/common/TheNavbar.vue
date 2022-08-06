@@ -1,7 +1,7 @@
 <template>
   <nav>
     <h2 class="logo">
-      <nuxt-link to="/" v-bind:style="{color:colorChange}" class="logo-icon" href="#">
+      <nuxt-link to="/" v-bind:style="{ color: colorChange }" class="logo-icon" href="#">
         KTU <span>CEC</span>
       </nuxt-link>
       <!-- <nuxt-link v-else class="logo-icon" to="/">
@@ -11,26 +11,26 @@
     <div class="nav">
       <ul>
         <li>
-          <nuxt-link class="menu-btn" href="#" v-bind:style="{color:colorChange}" to="/about">
+          <nuxt-link class="menu-btn" href="#" v-bind:style="{ color: colorChange }" to="/about">
             Hakkımızda
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/events" href="#" class="menu-btn" v-bind:style="{color:colorChange}">
+          <nuxt-link to="/events" href="#" class="menu-btn" v-bind:style="{ color: colorChange }">
             Etkinlikler
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/books" href="#" class="menu-btn" v-bind:style="{color:colorChange}">
+          <nuxt-link to="/books" href="#" class="menu-btn" v-bind:style="{ color: colorChange }">
             Kitaplar
           </nuxt-link>
         </li>
-        <li><a class="menu-btn" href="#footer" v-bind:style="{color:colorChange}" >İletişim</a></li>
+        <li><a class="menu-btn" href="#footer" v-bind:style="{ color: colorChange }">İletişim</a></li>
       </ul>
 
       <nuxt-link class="login-btn d-flex justify-content-center" to="/signin">
-        <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
-        <ion-icon style="font-size: 22px" name="log-out-outline" />
+        <span class="mr-2"> Kayıt Ol </span>
+        <font-awesome-icon icon="fa-solid fa-right-to-bracket" />
       </nuxt-link>
     </div>
 
@@ -43,21 +43,21 @@
 
       <ul class="mobile-menu">
         <li>
-          <nuxt-link class="menu-btn" v-bind:style="{color:colorChange}" to="/about" href="#">
+          <nuxt-link class="menu-btn" v-bind:style="{ color: colorChange }" to="/about" href="#">
             Hakkımızda
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/events" v-bind:style="{color:colorChange}" class="menu-btn" href="#">
+          <nuxt-link to="/events" v-bind:style="{ color: colorChange }" class="menu-btn" href="#">
             Etkinlikler
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/books" v-bind:style="{color:colorChange}" class="menu-btn" href="#">
+          <nuxt-link to="/books" v-bind:style="{ color: colorChange }" class="menu-btn" href="#">
             Kitaplar
           </nuxt-link>
         </li>
-        <li><a class="menu-btn" v-bind:style="{color:colorChange}" href="#footer">İletişim</a></li>
+        <li><a class="menu-btn" v-bind:style="{ color: colorChange }" href="#footer">İletişim</a></li>
 
         <nuxt-link v-if="!$auth.loggedIn" class="login-btn d-flex justify-content-center" to="/signin">
           <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
@@ -100,16 +100,16 @@ export default {
     }
   },
   computed: {
-    colorChange(){
-      if(this.$nuxt.$route.path === '/'){
+    colorChange() {
+      if (this.$nuxt.$route.path === '/') {
         return '#fff'
       }
-      else{
+      else {
         return '#111'
       }
     }
   },
-  created(){
+  created() {
     this.deneme
   }
 }
@@ -168,13 +168,20 @@ nav ul li {
   border: none;
   background: $red;
   padding: 12px 30px;
-  color: white;
+  color: $white;
   font-weight: bold;
   height: 45px;
   border-radius: 30px;
   font-size: 16px;
   transition: 0.4s;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & span{
+    color: $white;
+  }
 }
 
 .login-btn:hover {

@@ -35,10 +35,11 @@ export default {
     '@/assets/scss/colors.scss',
     '@/assets/css/bootstrap.min.css',
     // '@/assets/scss/components/EventCard.scss',
-    '@/assets/scss/main.scss'
+    '@/assets/scss/main.scss',
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
 
-  plugins: [{ src: '~/plugins/api.js' }, { src: '~/plugins/axios.js' }],
+  plugins: [{ src: '~/plugins/api.js' }, { src: '~/plugins/axios.js' },'~/plugins/fontawesome.js'],
 
   components: true,
 

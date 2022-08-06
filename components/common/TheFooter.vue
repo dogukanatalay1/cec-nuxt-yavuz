@@ -55,22 +55,23 @@
               <ul class="social_items d-flex list-unstyled">
                 <li>
                   <a href="#" class="icon">
-                    <ion-icon name="logo-facebook" />
+                    <fa :icon="['fab', 'facebook']" />
                   </a>
                 </li>
                 <li>
                   <a href="#" class="icon">
-                    <ion-icon name="logo-twitter" />
+                    <fa :icon="['fab', 'twitter']" />
                   </a>
                 </li>
                 <li>
                   <a href="#" class="icon">
-                    <ion-icon name="logo-linkedin" />
+                    <fa :icon="['fab', 'linkedin']" />
                   </a>
                 </li>
                 <li>
                   <a href="#" class="icon">
-                    <ion-icon name="logo-instagram" />
+
+                    <fa :icon="['fab', 'instagram']" />
                   </a>
                 </li>
               </ul>
@@ -132,7 +133,7 @@ export default {}
   flex-direction: row;
   justify-content: space-between;
 
-  & li{
+  & li {
     margin-left: 0;
   }
 }
@@ -141,6 +142,7 @@ export default {}
 ul li {
   margin-left: -14px;
   transition: 0.2s ease-in-out all;
+
   &:hover {
     transform: scale(1.1);
   }

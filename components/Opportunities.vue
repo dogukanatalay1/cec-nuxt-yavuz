@@ -11,8 +11,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-4">
           <div class="single_item single_item_first">
             <div class="icon_wrapper">
-              <!-- <i class="flaticon-student" /> -->
-              <ion-icon class="icon" name="accessibility" />
+              <font-awesome-icon class="icon" icon="fa-solid fa-people-group" />
             </div>
             <div class="blog_title">
               <h3>
@@ -30,7 +29,7 @@
           <div class="single_item single_item_center">
             <div class="icon_wrapper">
               <!-- <i class="flaticon-university" /> -->
-              <ion-icon class="icon" name="git-branch" />
+              <font-awesome-icon class="icon" icon="fa-solid fa-code-branch" />
             </div>
             <div class="blog_title">
               <h3>
@@ -47,8 +46,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-4">
           <div class="single_item single_item_last">
             <div class="icon_wrapper">
-              <!-- <i class="flaticon-diploma" /> -->
-              <ion-icon class="icon" name="business" />
+              <font-awesome-icon class="icon" icon="fa-solid fa-building-user" />
             </div>
             <div class="blog_title">
               <h3>
@@ -82,11 +80,13 @@ export default {
 .unlimited_possibilities {
   padding: 60px !important;
 }
+
 .single_item {
   box-shadow: 5px 7px 7px 5px darkgray;
   height: 340px;
   transition: 0.2s;
 }
+
 .single_item:hover {
   box-shadow: 5px 10px 12px 5px darkgrey;
   transition: 0.2s;
@@ -102,18 +102,16 @@ a {
 }
 
 .item-title:hover {
-  color: $red !important;
+  color: $red  !important;
 }
 
 .unlimited_possibilities {
   background-image: url('assets/images/bg2.png');
-  -webkit-mask-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(rgba(0, 0, 0, 1)),
-    to(rgba(0, 0, 0, 1))
-  );
+  -webkit-mask-image: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(0, 0, 0, 1)));
   background-repeat: no-repeat, repeat;
   background-size: cover;
 }
