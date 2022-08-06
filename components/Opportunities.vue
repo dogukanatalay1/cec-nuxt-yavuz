@@ -77,12 +77,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/scss/colors.scss';
+
+
 .unlimited_possibilities {
   padding: 60px !important;
 }
 .single_item {
   box-shadow: 5px 7px 7px 5px darkgray;
-  height: 320px;
+  height: 340px;
   transition: 0.2s;
 }
 .single_item:hover {

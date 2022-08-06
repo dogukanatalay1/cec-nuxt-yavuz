@@ -82,6 +82,7 @@ input {
   background-color: transparent;
   border: none;
   width: 100%;
+  min-height: 48px;
   border: 1.6px solid #6a7a83;
   border-left: none;
   border-top-right-radius: 8px;
@@ -121,7 +122,7 @@ input {
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
     transition: background-color 10000s;
-    -webkit-text-fill-color: #fff !important;
+    -webkit-text-fill-color: #111 !important;
   }
 }
 
@@ -193,6 +194,7 @@ a {
 
     .buttons {
       width: 80%;
+      font-weight: bold;
 
       @media screen and (max-width: 373px) {
         flex-direction: column;

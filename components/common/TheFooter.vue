@@ -5,9 +5,7 @@
         <div class="row pb-5">
           <div class="col-12 col-md-6 col-lg-4">
             <div class="footer_single_col footer_intro">
-              <div
-                class="cecicon-container d-flex align-items-center justify-content-center"
-              >
+              <div class="cecicon-container d-flex align-items-center justify-content-center">
                 <img src="@/assets/images/cec(1).png" alt="" class="f_logo">
               </div>
               <p>
@@ -82,12 +80,7 @@
       </div>
     </div>
     <div class="shapes_bg">
-      <img
-        src="@/assets/images/bg2.png"
-        style="width: 1270px"
-        alt=""
-        class="shape_3"
-      >
+      <img src="@/assets/images/bg2.png" style="width: 1270px" alt="" class="shape_3">
       <img src="@/assets/images/footer_2.png" alt="" class="shape_1">
     </div>
   </footer>
@@ -100,8 +93,12 @@ export default {}
 <style lang="scss" scoped>
 @import 'assets/scss/colors.scss';
 
+.footer_single_col {
+  padding: 0 !important;
+}
+
 .footer_2 {
-  background-color: $about-black !important;
+  background-color: $about-black  !important;
 }
 
 .cecicon-container {
@@ -116,11 +113,13 @@ export default {}
 .red-span {
   color: $red;
 }
+
 .row {
   display: flex !important;
   padding: 0 100px;
-  flex-direction: row !important;
   justify-content: space-around !important;
+  flex-direction: row !important;
+  text-align: center;
 }
 
 .icon {
@@ -128,7 +127,19 @@ export default {}
   color: #fff;
 }
 
+.social_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  & li{
+    margin-left: 0;
+  }
+}
+
+
 ul li {
+  margin-left: -14px;
   transition: 0.2s ease-in-out all;
   &:hover {
     transform: scale(1.1);

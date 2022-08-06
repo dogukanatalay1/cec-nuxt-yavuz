@@ -1,36 +1,31 @@
 <template>
   <nav>
     <h2 class="logo">
-      <nuxt-link
-        v-if="$nuxt.$route.path === '/'"
-        to="/"
-        class="logo-icon"
-        href="#"
-      >
+      <nuxt-link to="/" v-bind:style="{color:colorChange}" class="logo-icon" href="#">
         KTU <span>CEC</span>
       </nuxt-link>
-      <nuxt-link v-else class="logo-icon" to="/">
+      <!-- <nuxt-link v-else class="logo-icon" to="/">
         <span style="color: black"> KTU </span><span>CEC</span>
-      </nuxt-link>
+      </nuxt-link> -->
     </h2>
     <div class="nav">
       <ul>
         <li>
-          <nuxt-link class="menu-btn" to="/about" href="#">
+          <nuxt-link class="menu-btn" href="#" v-bind:style="{color:colorChange}" to="/about">
             Hakkımızda
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/events" class="menu-btn" href="#">
+          <nuxt-link to="/events" href="#" class="menu-btn" v-bind:style="{color:colorChange}">
             Etkinlikler
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/books" class="menu-btn" href="#">
+          <nuxt-link to="/books" href="#" class="menu-btn" v-bind:style="{color:colorChange}">
             Kitaplar
           </nuxt-link>
         </li>
-        <li><a class="menu-btn" href="#footer">İletişim</a></li>
+        <li><a class="menu-btn" href="#footer" v-bind:style="{color:colorChange}" >İletişim</a></li>
       </ul>
 
       <nuxt-link class="login-btn d-flex justify-content-center" to="/signin">
@@ -48,57 +43,27 @@
 
       <ul class="mobile-menu">
         <li>
-          <nuxt-link
-            class="menu-btn"
-            to="/about"
-            href="#"
-          >
+          <nuxt-link class="menu-btn" v-bind:style="{color:colorChange}" to="/about" href="#">
             Hakkımızda
           </nuxt-link>
-
-          <!--v-if="$nuxt.$route.path === '/'"-->
-
-
-
-
-          <!-- <nuxt-link
-            v-if="!$nuxt.$route.path === '/'"
-            class="menu-btn"
-            style="color: black"
-            to="/about"
-            href="#"
-          >
-            Hakkımızda
-          </nuxt-link> -->
-
-
-
-
         </li>
         <li>
-          <nuxt-link to="/events" class="menu-btn" href="#">
+          <nuxt-link to="/events" v-bind:style="{color:colorChange}" class="menu-btn" href="#">
             Etkinlikler
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/books" class="menu-btn" href="#">
+          <nuxt-link to="/books" v-bind:style="{color:colorChange}" class="menu-btn" href="#">
             Kitaplar
           </nuxt-link>
         </li>
-        <li><a class="menu-btn" href="#">İletişim</a></li>
-        <nuxt-link
-          v-if="!$auth.loggedIn"
-          class="login-btn d-flex justify-content-center"
-          to="/signin"
-        >
+        <li><a class="menu-btn" v-bind:style="{color:colorChange}" href="#footer">İletişim</a></li>
+
+        <nuxt-link v-if="!$auth.loggedIn" class="login-btn d-flex justify-content-center" to="/signin">
           <span style="color: #fff" class="mr-2"> Kayıt Ol </span>
           <ion-icon style="font-size: 22px" name="log-out-outline" />
         </nuxt-link>
-        <button
-          v-if="$auth.loggedIn"
-          class="login-btn d-flex justify-content-center"
-          @click="logout()"
-        >
+        <button v-if="$auth.loggedIn" class="login-btn d-flex justify-content-center" @click="logout()">
           <span style="color: #fff" class="mr-2"> Çıkış Yap </span>
           <ion-icon style="font-size: 22px" name="log-out-outline" />
         </button>
@@ -110,13 +75,13 @@
 <script>
 export default {
   name: 'NavbarVue',
-  data () {
+  data() {
     return {
       isClicked: false
     }
   },
   methods: {
-    toggleMobileMenu () {
+    toggleMobileMenu() {
       this.isClicked = !this.isClicked
       const menu = document.querySelector('#hamburger-icon')
       const nav = document.querySelector('nav')
@@ -130,9 +95,22 @@ export default {
         mobilemenu.style.transform = 'scale(0)'
       }
     },
-    logout () {
+    logout() {
       this.$auth.logout()
     }
+  },
+  computed: {
+    colorChange(){
+      if(this.$nuxt.$route.path === '/'){
+        return '#fff'
+      }
+      else{
+        return '#111'
+      }
+    }
+  },
+  created(){
+    this.deneme
   }
 }
 </script>
@@ -177,7 +155,6 @@ nav ul li {
 }
 
 .menu-btn {
-  color: $red;
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
@@ -233,8 +210,7 @@ nav ul li {
   transform: rotate(45deg) translate(-6px, -8px);
 }
 
-.open .mobile-menu {
-}
+.open .mobile-menu {}
 
 .mobile-menu {
   display: flex;
